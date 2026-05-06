@@ -1,5 +1,7 @@
 ﻿using API._Instrument;
 using API._Lesson;
+using API._Material;
+using API._Room;
 using API._Student.Dto;
 using API._Teacher;
 using API.Shared;
@@ -16,9 +18,11 @@ public class Student
     public DateOnly? Birtday { get; set; }
     public DateOnly? ActiveSince { get; set; }
     public Boolean Active { get; set; } = true;
+    public List<Teacher> Teachers { get; set; } = new List<Teacher>();
     public List<Instrument> Instruments { get; set; } = new List<Instrument>();
     public List<Lesson> Lessons { get; set; } = new List<Lesson>();
-    public List<Teacher> Teachers { get; set; } = new List<Teacher>();
+    public List<Room> Rooms { get; set; } = new List<Room>();
+    public List<Material> Materials { get; set; } = new List<Material>();
      
     public string FullName => $"{Sex} {FirstName} {LastName}";
     

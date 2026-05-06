@@ -1,0 +1,21 @@
+{
+  "name": "dsh",
+  "version": "1.0.0",
+  "description": "![Drumschule Harsch](http://drumschule-harsch.de/wp-content/uploads/2022/01/drumschule-harsch_logo-1.jpg)",
+  "main": "index.js",
+  "scripts": {
+    "db:start": "docker compose up -d"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gersteSen/dsh.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/gersteSen/dsh/issues"
+  },
+  "homepage": "https://github.com/gersteSen/dsh#readme"
+}

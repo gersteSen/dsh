@@ -1,4 +1,7 @@
-﻿using API._Room.Dto;
+﻿using API._Lesson;
+using API._Room.Dto;
+using API._Student;
+using API._Teacher;
 
 namespace API._Room;
 
@@ -8,6 +11,9 @@ public class Room
     public string Name { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
     public Address? Address { get; set; }
+    public List<Lesson> Lessons { get; set; } = new List<Lesson>();
+    public List<Teacher> Teachers { get; set; } = new List<Teacher>();
+    public List<Student> Students { get; set; } = new List<Student>();
     
     public void HandleCommand(CreateRoomDto cmd)
     {
