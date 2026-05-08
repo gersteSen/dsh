@@ -32,6 +32,6 @@ public class TeacherConfig:IEntityTypeConfiguration<Teacher>
             .WithMany(l => l.Teachers)
             .UsingEntity(j => j.ToTable("TeacherRooms", "ref"));
         
-        builder.HasQueryFilter(x => x.Active == false);
+        builder.HasQueryFilter(x => x.Active == true);
     }
 }

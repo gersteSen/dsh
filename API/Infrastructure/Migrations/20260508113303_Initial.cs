@@ -91,7 +91,7 @@ namespace API.Infrastructure.Migrations
                     Sex = table.Column<int>(type: "integer", nullable: false),
                     FirstName = table.Column<string>(type: "text", nullable: false),
                     LastName = table.Column<string>(type: "text", nullable: false),
-                    Birtday = table.Column<DateOnly>(type: "date", nullable: true),
+                    Birthday = table.Column<DateOnly>(type: "date", nullable: true),
                     ActiveSince = table.Column<DateOnly>(type: "date", nullable: true),
                     Active = table.Column<bool>(type: "boolean", nullable: false)
                 },

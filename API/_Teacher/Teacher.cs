@@ -15,7 +15,7 @@ public class Teacher
      public Sex Sex { get; set; } = Sex.Herr;
      public string FirstName { get; set; } = string.Empty;
      public string LastName { get; set; } = string.Empty;
-     public DateOnly? Birtday { get; set; }
+     public DateOnly? Birthday { get; set; }
      public DateOnly? ActiveSince { get; set; }
      public Boolean Active { get; set; } = true;
      
@@ -46,7 +46,7 @@ public class Teacher
           Sex = cmd.Sex;
           FirstName = cmd.FirstName;
           LastName = cmd.LastName;
-          Birtday = cmd.Birtday;
+          Birthday = cmd.Birthday;
           ActiveSince = cmd.ActiveSince;  
      }
      
@@ -56,7 +56,7 @@ public class Teacher
           Sex = cmd.Sex;
           FirstName = cmd.FirstName;
           LastName = cmd.LastName;
-          Birtday = cmd.Birtday;
+          Birthday = cmd.Birthday;
           ActiveSince = cmd.ActiveSince;
           Active = cmd.Active;
      }

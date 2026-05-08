@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace API.Infrastructure.Migrations
 {
     [DbContext(typeof(DshDatabaseContext))]
-    [Migration("20260506130440_Initial")]
+    [Migration("20260508113303_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -202,7 +202,7 @@ namespace API.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateOnly?>("Birtday")
+                    b.Property<DateOnly?>("Birthday")
                         .HasColumnType("date");
 
                     b.Property<string>("FirstName")
