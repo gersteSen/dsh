@@ -1,3 +1,5 @@
+using API._Student.Repository;
+using API._Student.Service;
 using API._Teacher.Repository;
 using API._Teacher.Services;
 using API.Infrastructure;
@@ -25,6 +27,8 @@ builder.Services.AddDbContext<DshDatabaseContext>(options =>
 
 builder.Services.AddScoped<ITeacherRepository, TeacherRepository>();
 builder.Services.AddScoped<ITeacherService, TeacherService>();
+builder.Services.AddScoped<IStudentRepository, StudentRepository>();
+builder.Services.AddScoped<IStudentService, StudentService>();
 
 
 

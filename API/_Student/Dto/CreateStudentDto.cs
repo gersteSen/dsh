@@ -10,4 +10,9 @@ public class CreateStudentDto
     public string LastName { get; set; } = string.Empty;
     public DateOnly? Birtday { get; set; }
     public DateOnly? ActiveSince { get; set; }
+    public List<Guid> InstrumentIds { get; set; } = new List<Guid>();
+    public List<Guid> TeacherIds { get; set; } = new List<Guid>();
+    public List<Guid> RoomIds { get; set; } = new List<Guid>();
+    public List<Guid> LessonIds { get; set; } = new List<Guid>();
+    public List<Guid> MaterialIds { get; set; } = new List<Guid>();
 }

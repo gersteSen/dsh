@@ -33,6 +33,6 @@ public class StudentConfig:IEntityTypeConfiguration<Student>
             .WithMany(l => l.Students)
             .UsingEntity(j => j.ToTable("StudentRooms", "ref"));
         
-        builder.HasQueryFilter(x => x.Active == false);
+        builder.HasQueryFilter(x => x.Active == true);
     }
 }
