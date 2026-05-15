@@ -1,0 +1,13 @@
+export * from './instrument.service.generated';
+import { InstrumentService } from './instrument.service.generated';
+export * from './lesson.service.generated';
+import { LessonService } from './lesson.service.generated';
+export * from './material.service.generated';
+import { MaterialService } from './material.service.generated';
+export * from './room.service.generated';
+import { RoomService } from './room.service.generated';
+export * from './student.service.generated';
+import { StudentService } from './student.service.generated';
+export * from './teacher.service.generated';
+import { TeacherService } from './teacher.service.generated';
+export const APIS = [InstrumentService, LessonService, MaterialService, RoomService, StudentService, TeacherService];

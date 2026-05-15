@@ -1,0 +1,57 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'material-symbols';
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 100,
+    'GRAD' 0,
+    'opsz' 24
+}
+
+
+[data-theme="dark"] {
+  background-color: #0F172A;
+  color:white;
+
+  --color-primary: #007ACC;
+  --color-secondary: #00FF00;
+  --color-tertiary: #1E293B;
+  --color-neutral: #0F172A;
+
+}
+
+[data-theme="light"] {
+  background-color: white;
+  color:black;
+}
+
+[data-theme="custom"] {
+  @apply bg-mauve-900;
+  color:white;
+}
+
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 828px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+
+  --color-primary: #002a48;
+  --color-primary-container: #00416A;
+  --color-primary-fixed: #cfe5ff;
+
+  --color-secondary: #003907;
+  --color-secondary-container: #93D08A;
+  --color-secondary-fixed: #C9FFBE;
+
+  --color-tertiary: #623101;
+  --color-neutral: #75777B;
+}
+
+

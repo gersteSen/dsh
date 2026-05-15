@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "db:start": "docker compose up -d",
-    "generate:frontend": "docker run --rm -v %cd%:/local openapitools/openapi-generator-cli generate -i http://host.docker.internal:5172/swagger/v1/swagger.json -g typescript-angular -o /local/_generated --global-property models,apis --additional-properties=serviceFileSuffix=.service.generated"
+    "generate:frontend": "docker run --rm -v %cd%:/local openapitools/openapi-generator-cli generate -i http://host.docker.internal:5172/swagger/v1/swagger.json -g typescript-angular -o /local/Frontend/src/_generated --global-property models,apis,supportingFiles --additional-properties=serviceFileSuffix=.service.generated"
   },
   "repository": {
     "type": "git",
