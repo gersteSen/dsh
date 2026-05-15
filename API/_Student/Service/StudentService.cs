@@ -25,12 +25,5 @@ public class StudentService(IStudentRepository studentRepository) : IStudentServ
         return await studentRepository.GetStudentById(studentId, cancellationToken);
     }
 
-    public async Task<List<StudentDto>> GetStudentsByTeacherId(Guid teacherId, CancellationToken cancellationToken = default)
-    {
-        var students = await studentRepository.GetAllStudents(cancellationToken);
-        return students
-            .Where(s => s.Teachers.Any(t => t.Id == teacherId))
-            .ToList();
-    }
 }
 

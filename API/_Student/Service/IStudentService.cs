@@ -8,6 +8,6 @@ public interface IStudentService
     Task UpdateStudentAsync(UpdateStudentDto updateStudentDto, CancellationToken cancellationToken = default);
     Task<List<StudentDto>> GetAllStudents(CancellationToken cancellationToken = default);
     Task<StudentDto> GetStudentById(Guid studentId, CancellationToken cancellationToken = default);
-    Task<List<StudentDto>> GetStudentsByTeacherId(Guid teacherId, CancellationToken cancellationToken = default);
+    
 }
 

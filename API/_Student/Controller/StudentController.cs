@@ -36,12 +36,5 @@ public class StudentController(IStudentService studentService) : ControllerBase
         return Ok(result);
     }
     
-    [HttpGet("GetStudentsByTeacherId/{teacherId}")]
-    public async Task<ActionResult<List<StudentDto>>> GetStudentsByTeacherId(Guid teacherId)
-    {
-        var result = await studentService.GetStudentsByTeacherId(teacherId);
-        return Ok(result);
-    }
-    
 
 }

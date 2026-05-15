@@ -1,4 +1,5 @@
-﻿using API._Teacher.Dto;
+﻿using API._Student.Dto;
+using API._Teacher.Dto;
 
 namespace API._Teacher.Repository;
 
@@ -8,4 +9,5 @@ public interface ITeacherRepository
     Task UpdateTeacherAsync(UpdateTeacherDto updateTeacherDto, CancellationToken cancellationToken = default);
     Task<List<TeacherDto>> GetAllTeachers(CancellationToken cancellationToken = default);
     Task<TeacherDto> GetTeacherById(Guid teacherId, CancellationToken cancellationToken = default);
+    Task<List<StudentDto>> GetAllStudentsByTeacherId(Guid teacherId, CancellationToken cancellationToken = default);
 }

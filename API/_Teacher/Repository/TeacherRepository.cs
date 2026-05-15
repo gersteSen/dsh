@@ -1,4 +1,5 @@
-﻿using API._Teacher.Dto;
+﻿using API._Student.Dto;
+using API._Teacher.Dto;
 using API.Infrastructure;
 using API.Shared;
 using Microsoft.EntityFrameworkCore;
@@ -66,7 +67,18 @@ public class TeacherRepository(DshDatabaseContext context) : ITeacherRepository
 
         return teacher.ToDto();
     }
-    
+
+    public async Task<List<StudentDto>> GetAllStudentsByTeacherId(Guid teacherId, CancellationToken cancellationToken = default)
+    {
+        var teacher = await context.Teachers
+            .Include(t => t.Students)
+            .FirstOrDefaultAsync(t => t.Id == teacherId, cancellationToken);
+
+        if (teacher is null) throw new KeyNotFoundException($"Kein Lehrer mit der Id vorhanden: {teacherId}");
+
+        return teacher.Students.Select(student => student.ToDto()).ToList();
+    }
+
     private async Task LoadRelatedEntitiesAsync(
         Teacher teacher,
         List<Guid> instrumentIds,

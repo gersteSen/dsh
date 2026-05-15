@@ -1,4 +1,6 @@
-﻿using API._Student;
+﻿using API._Instrument;
+using API._Instrument.Dto;
+using API._Student;
 using API._Student.Dto;
 using API._Teacher;
 using API._Teacher.Dto;
@@ -7,6 +9,17 @@ namespace API.Shared;
 
 public static class HelperExtension
 {
+    public static InstrumentDto ToDto(this Instrument instrument)
+    {
+        return new InstrumentDto
+        {
+            Id = instrument.Id,
+            Name = instrument.Name,
+            Description = instrument.Description,
+            Image = instrument.Image
+        };
+    }
+
     public static TeacherDto ToDto(this Teacher teacher)
     {
         return new TeacherDto
@@ -34,7 +47,7 @@ public static class HelperExtension
             Birthday = student.Birthday,
             Avatar = student.Avatar,
             Sex = student.Sex,
-            Active = student.Active
+            Active = student.Active,
         };
     }
 }

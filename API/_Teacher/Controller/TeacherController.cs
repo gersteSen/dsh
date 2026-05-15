@@ -1,4 +1,5 @@
-﻿using API._Teacher.Dto;
+﻿using API._Student.Dto;
+using API._Teacher.Dto;
 using API._Teacher.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -33,6 +34,13 @@ public class TeacherController(ITeacherService teacherService) : ControllerBase
     public async Task<ActionResult<TeacherDto>> GetTeacherById(Guid teacherId)
     {
         var result = await teacherService.GetTeacherById(teacherId);
+        return Ok(result);
+    }
+    
+    [HttpGet("GetStudentsByTeacherId/{teacherId}")]
+    public async Task<ActionResult<List<StudentDto>>> GetStudentsByTeacherId(Guid teacherId)
+    {
+        var result = await teacherService.GetStudentsByTeacherId(teacherId);
         return Ok(result);
     }
 }

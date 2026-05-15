@@ -18,10 +18,5 @@ public class StudentDto
     public DateOnly? Birthday { get; set; }
     public DateOnly? ActiveSince { get; set; }
     public Boolean Active { get; set; } = true;
-    public List<TeacherDto> Teachers { get; set; } = new List<TeacherDto>();
-    public List<Instrument> Instruments { get; set; } = new List<Instrument>();
-    public List<Lesson> Lessons { get; set; } = new List<Lesson>();
-    public List<Room> Rooms { get; set; } = new List<Room>();
-    public List<Material> Materials { get; set; } = new List<Material>();
 }
 
