@@ -1,5 +1,7 @@
 ﻿using API._Instrument;
 using API._Instrument.Dto;
+using API._Lesson;
+using API._Lesson.Dto;
 using API._Material;
 using API._Material.Dto;
 using API._Student;
@@ -50,6 +52,21 @@ public static class HelperExtension
             Avatar = student.Avatar,
             Sex = student.Sex,
             Active = student.Active,
+        };
+    }
+
+    public static LessonDto ToDto(this Lesson lesson)
+    {
+        return new LessonDto
+        {
+            Id = lesson.Id,
+            StartTime = lesson.StartTime,
+            EndTime = lesson.EndTime,
+            State = lesson.State,
+            TeacherId = lesson.TeacherId,
+            StudentId = lesson.StudentId,
+            RoomId = lesson.RoomId,
+            InstrumentId = lesson.InstrumentId
         };
     }
 
