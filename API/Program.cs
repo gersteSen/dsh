@@ -1,3 +1,7 @@
+using API._Instrument.Repository;
+using API._Instrument.Service;
+using API._Material.Repository;
+using API._Material.Service;
 using API._Student.Repository;
 using API._Student.Service;
 using API._Teacher.Repository;
@@ -29,6 +33,10 @@ builder.Services.AddScoped<ITeacherRepository, TeacherRepository>();
 builder.Services.AddScoped<ITeacherService, TeacherService>();
 builder.Services.AddScoped<IStudentRepository, StudentRepository>();
 builder.Services.AddScoped<IStudentService, StudentService>();
+builder.Services.AddScoped<IInstrumentRepository, InstrumentRepository>();
+builder.Services.AddScoped<IInstrumentService, InstrumentService>();
+builder.Services.AddScoped<IMaterialRepository, MaterialRepository>();
+builder.Services.AddScoped<IMaterialService, MaterialService>();
 
 
 

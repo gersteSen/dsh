@@ -1,5 +1,7 @@
 ﻿using API._Instrument;
 using API._Instrument.Dto;
+using API._Material;
+using API._Material.Dto;
 using API._Student;
 using API._Student.Dto;
 using API._Teacher;
@@ -48,6 +50,23 @@ public static class HelperExtension
             Avatar = student.Avatar,
             Sex = student.Sex,
             Active = student.Active,
+        };
+    }
+
+    public static MaterialDto ToDto(this Material material)
+    {
+        return new MaterialDto
+        {
+            Id = material.Id,
+            Name = material.Name,
+            Description = material.Description,
+            Filetype = material.Filetype,
+            Filesize = material.Filesize,
+            Filesource = material.Filesource,
+            TeacherId = material.TeacherId,
+            StudentId = material.StudentId,
+            CreatedAt = material.CreatedAt,
+            UpdatedAt = material.UpdatedAt
         };
     }
 }
