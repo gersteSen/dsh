@@ -4,6 +4,8 @@ using API._Lesson.Repository;
 using API._Lesson.Service;
 using API._Material.Repository;
 using API._Material.Service;
+using API._Room.Repository;
+using API._Room.Service;
 using API._Student.Repository;
 using API._Student.Service;
 using API._Teacher.Repository;
@@ -41,6 +43,8 @@ builder.Services.AddScoped<IMaterialRepository, MaterialRepository>();
 builder.Services.AddScoped<IMaterialService, MaterialService>();
 builder.Services.AddScoped<ILessonRepository, LessonRepository>();
 builder.Services.AddScoped<ILessonService, LessonService>();
+builder.Services.AddScoped<IRoomRepository, RoomRepository>();
+builder.Services.AddScoped<IRoomService, RoomService>();
 
 
 

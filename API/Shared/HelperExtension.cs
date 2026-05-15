@@ -4,6 +4,8 @@ using API._Lesson;
 using API._Lesson.Dto;
 using API._Material;
 using API._Material.Dto;
+using API._Room;
+using API._Room.Dto;
 using API._Student;
 using API._Student.Dto;
 using API._Teacher;
@@ -84,6 +86,24 @@ public static class HelperExtension
             StudentId = material.StudentId,
             CreatedAt = material.CreatedAt,
             UpdatedAt = material.UpdatedAt
+        };
+    }
+
+    public static RoomDto ToDto(this Room room)
+    {
+        return new RoomDto
+        {
+            Id = room.Id,
+            Name = room.Name,
+            Description = room.Description,
+            Address = room.Address is not null ? new AddressDto
+            {
+                Street = room.Address.Street,
+                City = room.Address.City,
+                ZipCode = room.Address.ZipCode,
+                Longitude = room.Address.Longitude,
+                Latitude = room.Address.Latitude
+            } : null
         };
     }
 }
