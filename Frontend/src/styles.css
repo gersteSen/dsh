@@ -35,6 +35,12 @@
 }
 
 @theme {
+
+  --font-*: initial;
+  --font-sans: Inter;
+  --font-number:Intel One Mono;
+
+
   --breakpoint-*: initial;
   --breakpoint-sm: 640px;
   --breakpoint-md: 828px;
@@ -45,13 +51,67 @@
   --color-primary: #002a48;
   --color-primary-container: #00416A;
   --color-primary-fixed: #cfe5ff;
+  --color-primary-50: #f0f8ff;
+  --color-primary-100: #e0f0fe;
+  --color-primary-200: #b9e2fe;
+  --color-primary-300: #7ccbfd;
+  --color-primary-400: #36b2fa;
+  --color-primary-500: #0c98eb;
+  --color-primary-600: #007acc;
+  --color-primary-700: #0160a3;
+  --color-primary-800: #065186;
+  --color-primary-900: #0b446f;
+  --color-primary-950: #072b4a;
 
   --color-secondary: #003907;
   --color-secondary-container: #93D08A;
   --color-secondary-fixed: #C9FFBE;
+  --color-secondry-50: #e6ffe4;
+  --color-secondry-100: #c7ffc4;
+  --color-secondry-200: #93ff90;
+  --color-secondry-300: #52ff50;
+  --color-secondry-400: #00ff00;
+  --color-secondry-500: #00e604;
+  --color-secondry-600: #00b806;
+  --color-secondry-700: #008b07;
+  --color-secondry-800: #076d0d;
+  --color-secondry-900: #0b5c12;
+  --color-secondry-950: #003406;
 
   --color-tertiary: #623101;
+  --color-tertiary-50: #fffee6;
+  --color-tertiary-100: #fffdbe;
+  --color-tertiary-200: #fff780;
+  --color-tertiary-300: #ffeb37;
+  --color-tertiary-400: #ffdc01;
+  --color-tertiary-500: #fed000;
+  --color-tertiary-600: #dba200;
+  --color-tertiary-700: #af7200;
+  --color-tertiary-800: #8f5604;
+  --color-tertiary-900: #79450a;
+  --color-tertiary-950: #623101;
+
   --color-neutral: #75777B;
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f4f4f5;
+  --color-neutral-200: #e5e5e6;
+  --color-neutral-300: #d5d6d7;
+  --color-neutral-400: #a3a5a8;
+  --color-neutral-500: #75777b;
+  --color-neutral-600: #545659;
+  --color-neutral-700: #404245;
+  --color-neutral-800: #282829;
+  --color-neutral-900: #19191a;
+  --color-neutral-950: #090a0b;
 }
 
+@font-face {
+  font-family: 'Inter';
+  src: url('../src/assets/Inter/Inter-VariableFont_opsz,wght.ttf') format('truetype-variations');
+}
+
+@font-face {
+  font-family: 'Intel One Mono';
+  src: url('../src/assets/Intel_One_Mono/IntelOneMono-VariableFont_wght.ttf') format('truetype-variations');
+}
 

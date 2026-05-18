@@ -1,10 +1,9 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import {ThemeSwitch} from './_shared/theme-switch/theme-switch';
+import {Sidebar} from './_shared/_components/layout/sidebar/sidebar';
 
 @Component({
-  selector: 'app-root',
-  imports: [RouterOutlet, ThemeSwitch],
+  selector: 'dsh-root',
+  imports: [Sidebar],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

@@ -1,0 +1,40 @@
+<aside class="sidebar">
+  <!-- Header -->
+  <div class="sidebar__header">
+    <img [src]="'images/dsh-logo.png'" alt="Drumschule Harsch Logo" class="sidebar__logo" />
+    <h1 class="sidebar__title">Drumschule Harsch</h1>
+    <p class="sidebar__subtitle">Administration</p>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="sidebar__nav">
+    @for (item of mainNavi; track item.route) {
+      <a
+        class="sidebar__nav-item"
+        [routerLink]="item.route"
+        routerLinkActive="active-link"
+      >
+        <span class="material-symbols-outlined sidebar__nav-icon">{{ item.icon }}</span>
+        <span class="sidebar__nav-label">{{ item.label }}</span>
+      </a>
+    }
+  </nav>
+
+  <!-- Spacer -->
+  <div class="sidebar__spacer"></div>
+
+  <!-- Footer -->
+  <div class="sidebar__footer">
+    @for(footer of footerNavigation; track footer.route) {
+      <a
+        class="sidebar__nav-item"
+        [routerLink]="footer.route"
+        routerLinkActive="active-link"
+      >
+        <span class="material-symbols-outlined sidebar__nav-icon">{{ footer.icon }}</span>
+        <span class="sidebar__nav-label">{{ footer.label }}</span>
+      </a>
+    }
+  </div>
+</aside>
+
