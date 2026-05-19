@@ -1,8 +1,7 @@
-﻿import {Page} from './page';
+﻿import { Page } from './page';
 
-export type PagesConfig =
-  {
-    label: string;
-    icon: string;
-    route: `/${Lowercase<Page>}`;
-  }
+export interface PagesConfig {
+  label: string;
+  icon: string;
+  route: `/${Page}`;
+}

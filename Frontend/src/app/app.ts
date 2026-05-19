@@ -1,12 +1,9 @@
-import { Component, signal } from '@angular/core';
-import {Sidebar} from './_shared/_components/layout/sidebar/sidebar';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'dsh-root',
-  imports: [Sidebar],
-  templateUrl: './app.html',
-  styleUrl: './app.css'
+  template: ` <router-outlet></router-outlet> `,
+  imports: [RouterOutlet],
 })
-export class App {
-  protected readonly title = signal('Frontend');
-}
+export class App {}
