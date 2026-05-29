@@ -66,17 +66,17 @@
   --color-secondary: #003907;
   --color-secondary-container: #93D08A;
   --color-secondary-fixed: #C9FFBE;
-  --color-secondry-50: #e6ffe4;
-  --color-secondry-100: #c7ffc4;
-  --color-secondry-200: #93ff90;
-  --color-secondry-300: #52ff50;
-  --color-secondry-400: #00ff00;
-  --color-secondry-500: #00e604;
-  --color-secondry-600: #00b806;
-  --color-secondry-700: #008b07;
-  --color-secondry-800: #076d0d;
-  --color-secondry-900: #0b5c12;
-  --color-secondry-950: #003406;
+  --color-secondary-50: #e6ffe4;
+  --color-secondary-100: #c7ffc4;
+  --color-secondary-200: #93ff90;
+  --color-secondary-300: #52ff50;
+  --color-secondary-400: #00ff00;
+  --color-secondary-500: #00e604;
+  --color-secondary-600: #00b806;
+  --color-secondary-700: #008b07;
+  --color-secondary-800: #076d0d;
+  --color-secondary-900: #0b5c12;
+  --color-secondary-950: #003406;
 
   --color-tertiary: #623101;
   --color-tertiary-50: #fffee6;
@@ -103,6 +103,9 @@
   --color-neutral-800: #282829;
   --color-neutral-900: #19191a;
   --color-neutral-950: #090a0b;
+
+  --color-text: var(--color-neutral-900);
+  --color-text-densed: var(--color-neutral-800);
 }
 
 @font-face {

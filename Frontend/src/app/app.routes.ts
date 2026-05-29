@@ -21,6 +21,12 @@ export const routes: Routes = [
             (d) => d.DASHBOARD_ROUTES,
           ),
       },
+      {
+        path: 'Settings' as Page,
+        title: 'DSH - Settings',
+        loadChildren: () =>
+          import('./Settings/settings-routes').then((s) => s.Settings_ROUTES),
+      },
     ],
   },
 ];

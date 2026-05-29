@@ -1,0 +1,17 @@
+:host {
+  display: inline-block;
+  position: relative;
+}
+
+el-select {
+  display: inline-block;
+  position: relative;
+}
+
+el-options {
+  position: absolute;
+  z-index: 50;
+  right: 0;
+  top: calc(100% + 0.5rem);
+}
+
