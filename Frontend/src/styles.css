@@ -12,101 +12,33 @@
     'opsz' 24
 }
 
+:root {
+  background-color: var(--color-general-bg);
 
-[data-theme="dark"] {
-  background-color: #0F172A;
-  color:white;
-
-  --color-primary: #007ACC;
-  --color-secondary: #00FF00;
-  --color-tertiary: #1E293B;
-  --color-neutral: #0F172A;
-
-}
-
-[data-theme="light"] {
-  background-color: white;
-  color:black;
-}
-
-[data-theme="custom"] {
-  @apply bg-mauve-900;
-  color:white;
 }
 
 @theme {
 
+
   --font-*: initial;
-  --font-sans: Inter;
+  --font-sans: Hanken Grotesk;
   --font-number:Intel One Mono;
+  --color-general-bg: #343e42;
+  --color-surface:#1f2629;
+  --color-hovered: #293136;
+  --color-condensed:#626871;
+
+  --color-primary: #e67e22;
+  --color-secondary: #99bfc2;
 
 
-  --breakpoint-*: initial;
-  --breakpoint-sm: 640px;
-  --breakpoint-md: 828px;
-  --breakpoint-lg: 1024px;
-  --breakpoint-xl: 1280px;
-  --breakpoint-2xl: 1536px;
-
-  --color-primary: #002a48;
-  --color-primary-container: #00416A;
-  --color-primary-fixed: #cfe5ff;
-  --color-primary-50: #f0f8ff;
-  --color-primary-100: #e0f0fe;
-  --color-primary-200: #b9e2fe;
-  --color-primary-300: #7ccbfd;
-  --color-primary-400: #36b2fa;
-  --color-primary-500: #0c98eb;
-  --color-primary-600: #007acc;
-  --color-primary-700: #0160a3;
-  --color-primary-800: #065186;
-  --color-primary-900: #0b446f;
-  --color-primary-950: #072b4a;
-
-  --color-secondary: #003907;
-  --color-secondary-container: #93D08A;
-  --color-secondary-fixed: #C9FFBE;
-  --color-secondary-50: #e6ffe4;
-  --color-secondary-100: #c7ffc4;
-  --color-secondary-200: #93ff90;
-  --color-secondary-300: #52ff50;
-  --color-secondary-400: #00ff00;
-  --color-secondary-500: #00e604;
-  --color-secondary-600: #00b806;
-  --color-secondary-700: #008b07;
-  --color-secondary-800: #076d0d;
-  --color-secondary-900: #0b5c12;
-  --color-secondary-950: #003406;
-
-  --color-tertiary: #623101;
-  --color-tertiary-50: #fffee6;
-  --color-tertiary-100: #fffdbe;
-  --color-tertiary-200: #fff780;
-  --color-tertiary-300: #ffeb37;
-  --color-tertiary-400: #ffdc01;
-  --color-tertiary-500: #fed000;
-  --color-tertiary-600: #dba200;
-  --color-tertiary-700: #af7200;
-  --color-tertiary-800: #8f5604;
-  --color-tertiary-900: #79450a;
-  --color-tertiary-950: #623101;
-
-  --color-neutral: #75777B;
-  --color-neutral-50: #fafafa;
-  --color-neutral-100: #f4f4f5;
-  --color-neutral-200: #e5e5e6;
-  --color-neutral-300: #d5d6d7;
-  --color-neutral-400: #a3a5a8;
-  --color-neutral-500: #75777b;
-  --color-neutral-600: #545659;
-  --color-neutral-700: #404245;
-  --color-neutral-800: #282829;
-  --color-neutral-900: #19191a;
-  --color-neutral-950: #090a0b;
-
-  --color-text: var(--color-neutral-900);
-  --color-text-densed: var(--color-neutral-800);
 }
+
+@font-face {
+  font-family: 'Hanken Grotesk';
+  src: url('../src/assets/Hanken_Grotesk/HankenGrotesk-VariableFont_wght.ttf') format('truetype-variations');
+}
+
 
 @font-face {
   font-family: 'Inter';

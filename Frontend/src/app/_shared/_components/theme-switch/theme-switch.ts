@@ -3,7 +3,7 @@ import { SelectMenu } from '../select-menu/select-menu';
 import { SelectMenuDataInterface } from '../select-menu/SelectMenuData.interface';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
-export type Theme = 'light' | 'dark' | 'custom';
+export type Theme = 'light' | 'dark' | 'custom' | 'ringfelter';
 
 @Component({
   selector: 'dsh-theme-switch',
@@ -13,8 +13,8 @@ export type Theme = 'light' | 'dark' | 'custom';
 })
 export class ThemeSwitch implements OnInit {
   themeControl = new FormControl<SelectMenuDataInterface<Theme>>({
-    label: 'Hell',
-    value: 'light',
+    label: 'Ringfelter',
+    value: 'ringfelter',
   });
   renderer = inject(Renderer2);
   theme = signal<Theme>('light');
@@ -30,6 +30,10 @@ export class ThemeSwitch implements OnInit {
     {
       label: 'Custom',
       value: 'custom',
+    },
+    {
+      label: 'Ringfelter',
+      value: 'ringfelter',
     },
   ]);
 

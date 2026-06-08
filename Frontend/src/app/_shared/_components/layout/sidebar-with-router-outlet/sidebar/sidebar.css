@@ -10,17 +10,16 @@
 .sidebar {
   display: flex;
   flex-direction: column;
-  width: 220px;
+  width: 320px;
   height: 100vh;
-  background-color: var(--color-primary-950);
-  padding: 1.5rem 0.75rem;
+  background-color: var(--color-surface);
+  padding: 1.5rem 0;
   gap: 0.25rem;
 }
 
 /* ---- Header ---- */
 .sidebar__header {
   padding: 0 0.75rem 1.5rem;
-  border-bottom: 1px solid var(--color-primary-800);
   margin-bottom: 0.75rem;
 }
 
@@ -32,10 +31,10 @@
 }
 
 .sidebar__title {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: white;
+  font-size: 1.4rem;
+  color: var(--color-secondary);
   line-height: 1.3;
+  text-transform: uppercase;
 }
 
 .sidebar__subtitle {
@@ -55,20 +54,20 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.6rem 0.75rem;
+  padding: 1.2rem 2.75rem;
   border-radius: 0;
-  color: var(--color-neutral-300);
+  color: var(--color-condensed);
   text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 400;
+  font-size: 1.2rem;
+  font-weight: 300;
   transition: background-color 0.2s ease, color 0.2s ease;
   cursor: pointer;
-  border-left: 3px solid transparent;
+  border-left: 5px solid transparent;
 }
 
 .sidebar__nav-item:hover {
-  background-color: var(--color-primary-900);
-  color: white;
+  background-color: var(--color-hovered);
+  color: var(--color-secondary);
 }
 
 .sidebar__nav-icon {
@@ -78,14 +77,12 @@
 
 /* ---- Active Link ---- */
 .active-link {
-  background-color: var(--color-primary-800);
+  background-color: var(--color-hovered);
   color: white !important;
-  border-left: 3px solid var(--color-secondry-400);
-  font-weight: 500;
+  border-left: 5px solid var(--color-secondary);
 }
 
 .active-link .sidebar__nav-icon {
-  color: var(--color-secondry-400);
   font-variation-settings: 'FILL' 1, 'wght' 300, 'GRAD' 0, 'opsz' 24;
 }
 
@@ -100,6 +97,6 @@
   flex-direction: column;
   gap: 0.15rem;
   padding-top: 0.75rem;
-  border-top: 1px solid var(--color-primary-800);
+  border-top: 1px solid var(--color-secondary);
 }
 
