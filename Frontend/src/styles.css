@@ -3,50 +3,46 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 
-
 .material-symbols-outlined {
   font-variation-settings:
     'FILL' 0,
     'wght' 100,
     'GRAD' 0,
-    'opsz' 24
+    'opsz' 24;
 }
 
 :root {
   background-color: var(--color-general-bg);
-
 }
 
 @theme {
-
-
   --font-*: initial;
   --font-sans: Hanken Grotesk;
-  --font-number:Intel One Mono;
+  --font-number: Intel One Mono;
   --color-general-bg: #343e42;
-  --color-surface:#1f2629;
+  --color-surface: #1f2629;
   --color-hovered: #293136;
-  --color-condensed:#626871;
+  --color-condensed: #626871;
+  --color-spacer: #2a3337;
 
   --color-primary: #e67e22;
   --color-secondary: #99bfc2;
-
-
 }
 
 @font-face {
   font-family: 'Hanken Grotesk';
-  src: url('../src/assets/Hanken_Grotesk/HankenGrotesk-VariableFont_wght.ttf') format('truetype-variations');
+  src: url('../src/assets/Hanken_Grotesk/HankenGrotesk-VariableFont_wght.ttf')
+    format('truetype-variations');
 }
-
 
 @font-face {
   font-family: 'Inter';
-  src: url('../src/assets/Inter/Inter-VariableFont_opsz,wght.ttf') format('truetype-variations');
+  src: url('../src/assets/Inter/Inter-VariableFont_opsz,wght.ttf')
+    format('truetype-variations');
 }
 
 @font-face {
   font-family: 'Intel One Mono';
-  src: url('../src/assets/Intel_One_Mono/IntelOneMono-VariableFont_wght.ttf') format('truetype-variations');
+  src: url('../src/assets/Intel_One_Mono/IntelOneMono-VariableFont_wght.ttf')
+    format('truetype-variations');
 }
-

@@ -17,11 +17,13 @@ import { Observable }                                        from 'rxjs';
 import { OpenApiHttpParams, QueryParamStyle } from '../query.params';
 
 // @ts-ignore
-import { CreateRoomDto } from '../model/createRoomDto';
+import { CreateTeacherDto } from '../model/createTeacherDto';
 // @ts-ignore
-import { RoomDto } from '../model/roomDto';
+import { StudentDto } from '../model/studentDto';
 // @ts-ignore
-import { UpdateRoomDto } from '../model/updateRoomDto';
+import { TeacherDto } from '../model/teacherDto';
+// @ts-ignore
+import { UpdateTeacherDto } from '../model/updateTeacherDto';
 
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -33,23 +35,23 @@ import { BaseService } from '../api.base.service';
 @Injectable({
   providedIn: 'root'
 })
-export class RoomService extends BaseService {
+export class TeacherApi extends BaseService {
 
     constructor(protected httpClient: HttpClient, @Optional() @Inject(BASE_PATH) basePath: string|string[], @Optional() configuration?: Configuration) {
         super(basePath, configuration);
     }
 
     /**
-     * @endpoint post /api/v1/Room/CreateRoom
-     * @param createRoomDto 
+     * @endpoint post /api/v1/Teacher/CreateTeacher
+     * @param createTeacherDto 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public apiV1RoomCreateRoomPost(createRoomDto?: CreateRoomDto, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<string>;
-    public apiV1RoomCreateRoomPost(createRoomDto?: CreateRoomDto, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<string>>;
-    public apiV1RoomCreateRoomPost(createRoomDto?: CreateRoomDto, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<string>>;
-    public apiV1RoomCreateRoomPost(createRoomDto?: CreateRoomDto, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public apiV1TeacherCreateTeacherPost(createTeacherDto?: CreateTeacherDto, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<string>;
+    public apiV1TeacherCreateTeacherPost(createTeacherDto?: CreateTeacherDto, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<string>>;
+    public apiV1TeacherCreateTeacherPost(createTeacherDto?: CreateTeacherDto, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<string>>;
+    public apiV1TeacherCreateTeacherPost(createTeacherDto?: CreateTeacherDto, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -89,12 +91,12 @@ export class RoomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/v1/Room/CreateRoom`;
+        let localVarPath = `/api/v1/Teacher/CreateTeacher`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<string>('post', `${basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
-                body: createRoomDto,
+                body: createTeacherDto,
                 responseType: <any>responseType_,
                 ...(withCredentials ? { withCredentials } : {}),
                 headers: localVarHeaders,
@@ -106,15 +108,15 @@ export class RoomService extends BaseService {
     }
 
     /**
-     * @endpoint get /api/v1/Room/GetAllRooms
+     * @endpoint get /api/v1/Teacher/GetAllTeachers
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public apiV1RoomGetAllRoomsGet(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<Array<RoomDto>>;
-    public apiV1RoomGetAllRoomsGet(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<RoomDto>>>;
-    public apiV1RoomGetAllRoomsGet(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<RoomDto>>>;
-    public apiV1RoomGetAllRoomsGet(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public apiV1TeacherGetAllTeachersGet(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<Array<TeacherDto>>;
+    public apiV1TeacherGetAllTeachersGet(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<TeacherDto>>>;
+    public apiV1TeacherGetAllTeachersGet(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<TeacherDto>>>;
+    public apiV1TeacherGetAllTeachersGet(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -143,9 +145,9 @@ export class RoomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/v1/Room/GetAllRooms`;
+        let localVarPath = `/api/v1/Teacher/GetAllTeachers`;
         const { basePath, withCredentials } = this.configuration;
-        return this.httpClient.request<Array<RoomDto>>('get', `${basePath}${localVarPath}`,
+        return this.httpClient.request<Array<TeacherDto>>('get', `${basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,
@@ -159,18 +161,18 @@ export class RoomService extends BaseService {
     }
 
     /**
-     * @endpoint get /api/v1/Room/GetRoomById/{roomId}
-     * @param roomId 
+     * @endpoint get /api/v1/Teacher/GetStudentsByTeacherId/{teacherId}
+     * @param teacherId 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public apiV1RoomGetRoomByIdRoomIdGet(roomId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<RoomDto>;
-    public apiV1RoomGetRoomByIdRoomIdGet(roomId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<RoomDto>>;
-    public apiV1RoomGetRoomByIdRoomIdGet(roomId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<RoomDto>>;
-    public apiV1RoomGetRoomByIdRoomIdGet(roomId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (roomId === null || roomId === undefined) {
-            throw new Error('Required parameter roomId was null or undefined when calling apiV1RoomGetRoomByIdRoomIdGet.');
+    public apiV1TeacherGetStudentsByTeacherIdTeacherIdGet(teacherId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<Array<StudentDto>>;
+    public apiV1TeacherGetStudentsByTeacherIdTeacherIdGet(teacherId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<StudentDto>>>;
+    public apiV1TeacherGetStudentsByTeacherIdTeacherIdGet(teacherId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<StudentDto>>>;
+    public apiV1TeacherGetStudentsByTeacherIdTeacherIdGet(teacherId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+        if (teacherId === null || teacherId === undefined) {
+            throw new Error('Required parameter teacherId was null or undefined when calling apiV1TeacherGetStudentsByTeacherIdTeacherIdGet.');
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -200,9 +202,9 @@ export class RoomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/v1/Room/GetRoomById/${this.configuration.encodeParam({name: "roomId", value: roomId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: "uuid"})}`;
+        let localVarPath = `/api/v1/Teacher/GetStudentsByTeacherId/${this.configuration.encodeParam({name: "teacherId", value: teacherId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: "uuid"})}`;
         const { basePath, withCredentials } = this.configuration;
-        return this.httpClient.request<RoomDto>('get', `${basePath}${localVarPath}`,
+        return this.httpClient.request<Array<StudentDto>>('get', `${basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,
@@ -216,16 +218,73 @@ export class RoomService extends BaseService {
     }
 
     /**
-     * @endpoint put /api/v1/Room/UpdateRoom
-     * @param updateRoomDto 
+     * @endpoint get /api/v1/Teacher/GetTeacherById/{teacherId}
+     * @param teacherId 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public apiV1RoomUpdateRoomPut(updateRoomDto?: UpdateRoomDto, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public apiV1RoomUpdateRoomPut(updateRoomDto?: UpdateRoomDto, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public apiV1RoomUpdateRoomPut(updateRoomDto?: UpdateRoomDto, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public apiV1RoomUpdateRoomPut(updateRoomDto?: UpdateRoomDto, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public apiV1TeacherGetTeacherByIdTeacherIdGet(teacherId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<TeacherDto>;
+    public apiV1TeacherGetTeacherByIdTeacherIdGet(teacherId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<TeacherDto>>;
+    public apiV1TeacherGetTeacherByIdTeacherIdGet(teacherId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<TeacherDto>>;
+    public apiV1TeacherGetTeacherByIdTeacherIdGet(teacherId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+        if (teacherId === null || teacherId === undefined) {
+            throw new Error('Required parameter teacherId was null or undefined when calling apiV1TeacherGetTeacherByIdTeacherIdGet.');
+        }
+
+        let localVarHeaders = this.defaultHeaders;
+
+        const localVarHttpHeaderAcceptSelected: string | undefined = options?.httpHeaderAccept ?? this.configuration.selectHeaderAccept([
+            'text/plain',
+            'application/json',
+            'text/json'
+        ]);
+        if (localVarHttpHeaderAcceptSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
+        }
+
+        const localVarHttpContext: HttpContext = options?.context ?? new HttpContext();
+
+        const localVarTransferCache: boolean = options?.transferCache ?? true;
+
+
+        let responseType_: 'text' | 'json' | 'blob' = 'json';
+        if (localVarHttpHeaderAcceptSelected) {
+            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
+                responseType_ = 'text';
+            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
+                responseType_ = 'json';
+            } else {
+                responseType_ = 'blob';
+            }
+        }
+
+        let localVarPath = `/api/v1/Teacher/GetTeacherById/${this.configuration.encodeParam({name: "teacherId", value: teacherId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: "uuid"})}`;
+        const { basePath, withCredentials } = this.configuration;
+        return this.httpClient.request<TeacherDto>('get', `${basePath}${localVarPath}`,
+            {
+                context: localVarHttpContext,
+                responseType: <any>responseType_,
+                ...(withCredentials ? { withCredentials } : {}),
+                headers: localVarHeaders,
+                observe: observe,
+                ...(localVarTransferCache !== undefined ? { transferCache: localVarTransferCache } : {}),
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * @endpoint put /api/v1/Teacher/UpdateTeacher
+     * @param updateTeacherDto 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     * @param options additional options
+     */
+    public apiV1TeacherUpdateTeacherPut(updateTeacherDto?: UpdateTeacherDto, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public apiV1TeacherUpdateTeacherPut(updateTeacherDto?: UpdateTeacherDto, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public apiV1TeacherUpdateTeacherPut(updateTeacherDto?: UpdateTeacherDto, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public apiV1TeacherUpdateTeacherPut(updateTeacherDto?: UpdateTeacherDto, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -262,12 +321,12 @@ export class RoomService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/v1/Room/UpdateRoom`;
+        let localVarPath = `/api/v1/Teacher/UpdateTeacher`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('put', `${basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
-                body: updateRoomDto,
+                body: updateTeacherDto,
                 responseType: <any>responseType_,
                 ...(withCredentials ? { withCredentials } : {}),
                 headers: localVarHeaders,

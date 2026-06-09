@@ -22,10 +22,16 @@ export const routes: Routes = [
           ),
       },
       {
+        path: 'Teachers' as Page,
+        title: 'DSH - Teachers',
+        loadChildren: () =>
+          import('./Teacher/teacher-routes').then((t) => t.TEACHER_ROUTES),
+      },
+      {
         path: 'Settings' as Page,
         title: 'DSH - Settings',
         loadChildren: () =>
-          import('./Settings/settings-routes').then((s) => s.Settings_ROUTES),
+          import('./Settings/settings-routes').then((s) => s.SETTINGS_ROUTES),
       },
     ],
   },

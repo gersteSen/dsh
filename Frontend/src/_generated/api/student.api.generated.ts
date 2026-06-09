@@ -17,11 +17,11 @@ import { Observable }                                        from 'rxjs';
 import { OpenApiHttpParams, QueryParamStyle } from '../query.params';
 
 // @ts-ignore
-import { CreateInstrumentDto } from '../model/createInstrumentDto';
+import { CreateStudentDto } from '../model/createStudentDto';
 // @ts-ignore
-import { InstrumentDto } from '../model/instrumentDto';
+import { StudentDto } from '../model/studentDto';
 // @ts-ignore
-import { UpdateInstrumentDto } from '../model/updateInstrumentDto';
+import { UpdateStudentDto } from '../model/updateStudentDto';
 
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -33,23 +33,23 @@ import { BaseService } from '../api.base.service';
 @Injectable({
   providedIn: 'root'
 })
-export class InstrumentService extends BaseService {
+export class StudentApi extends BaseService {
 
     constructor(protected httpClient: HttpClient, @Optional() @Inject(BASE_PATH) basePath: string|string[], @Optional() configuration?: Configuration) {
         super(basePath, configuration);
     }
 
     /**
-     * @endpoint post /api/v1/Instrument/CreateInstrument
-     * @param createInstrumentDto 
+     * @endpoint post /api/v1/Student/CreateStudent
+     * @param createStudentDto 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public apiV1InstrumentCreateInstrumentPost(createInstrumentDto?: CreateInstrumentDto, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<string>;
-    public apiV1InstrumentCreateInstrumentPost(createInstrumentDto?: CreateInstrumentDto, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<string>>;
-    public apiV1InstrumentCreateInstrumentPost(createInstrumentDto?: CreateInstrumentDto, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<string>>;
-    public apiV1InstrumentCreateInstrumentPost(createInstrumentDto?: CreateInstrumentDto, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public apiV1StudentCreateStudentPost(createStudentDto?: CreateStudentDto, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<string>;
+    public apiV1StudentCreateStudentPost(createStudentDto?: CreateStudentDto, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<string>>;
+    public apiV1StudentCreateStudentPost(createStudentDto?: CreateStudentDto, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<string>>;
+    public apiV1StudentCreateStudentPost(createStudentDto?: CreateStudentDto, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -89,12 +89,12 @@ export class InstrumentService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/v1/Instrument/CreateInstrument`;
+        let localVarPath = `/api/v1/Student/CreateStudent`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<string>('post', `${basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
-                body: createInstrumentDto,
+                body: createStudentDto,
                 responseType: <any>responseType_,
                 ...(withCredentials ? { withCredentials } : {}),
                 headers: localVarHeaders,
@@ -106,15 +106,15 @@ export class InstrumentService extends BaseService {
     }
 
     /**
-     * @endpoint get /api/v1/Instrument/GetAllInstruments
+     * @endpoint get /api/v1/Student/GetAllStudents
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public apiV1InstrumentGetAllInstrumentsGet(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<Array<InstrumentDto>>;
-    public apiV1InstrumentGetAllInstrumentsGet(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<InstrumentDto>>>;
-    public apiV1InstrumentGetAllInstrumentsGet(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<InstrumentDto>>>;
-    public apiV1InstrumentGetAllInstrumentsGet(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public apiV1StudentGetAllStudentsGet(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<Array<StudentDto>>;
+    public apiV1StudentGetAllStudentsGet(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<StudentDto>>>;
+    public apiV1StudentGetAllStudentsGet(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<StudentDto>>>;
+    public apiV1StudentGetAllStudentsGet(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -143,9 +143,9 @@ export class InstrumentService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/v1/Instrument/GetAllInstruments`;
+        let localVarPath = `/api/v1/Student/GetAllStudents`;
         const { basePath, withCredentials } = this.configuration;
-        return this.httpClient.request<Array<InstrumentDto>>('get', `${basePath}${localVarPath}`,
+        return this.httpClient.request<Array<StudentDto>>('get', `${basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,
@@ -159,18 +159,18 @@ export class InstrumentService extends BaseService {
     }
 
     /**
-     * @endpoint get /api/v1/Instrument/GetInstrumentById/{instrumentId}
-     * @param instrumentId 
+     * @endpoint get /api/v1/Student/GetStudentById/{studentId}
+     * @param studentId 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public apiV1InstrumentGetInstrumentByIdInstrumentIdGet(instrumentId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<InstrumentDto>;
-    public apiV1InstrumentGetInstrumentByIdInstrumentIdGet(instrumentId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<InstrumentDto>>;
-    public apiV1InstrumentGetInstrumentByIdInstrumentIdGet(instrumentId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<InstrumentDto>>;
-    public apiV1InstrumentGetInstrumentByIdInstrumentIdGet(instrumentId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        if (instrumentId === null || instrumentId === undefined) {
-            throw new Error('Required parameter instrumentId was null or undefined when calling apiV1InstrumentGetInstrumentByIdInstrumentIdGet.');
+    public apiV1StudentGetStudentByIdStudentIdGet(studentId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<StudentDto>;
+    public apiV1StudentGetStudentByIdStudentIdGet(studentId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<StudentDto>>;
+    public apiV1StudentGetStudentByIdStudentIdGet(studentId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<StudentDto>>;
+    public apiV1StudentGetStudentByIdStudentIdGet(studentId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+        if (studentId === null || studentId === undefined) {
+            throw new Error('Required parameter studentId was null or undefined when calling apiV1StudentGetStudentByIdStudentIdGet.');
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -200,9 +200,9 @@ export class InstrumentService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/v1/Instrument/GetInstrumentById/${this.configuration.encodeParam({name: "instrumentId", value: instrumentId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: "uuid"})}`;
+        let localVarPath = `/api/v1/Student/GetStudentById/${this.configuration.encodeParam({name: "studentId", value: studentId, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: "uuid"})}`;
         const { basePath, withCredentials } = this.configuration;
-        return this.httpClient.request<InstrumentDto>('get', `${basePath}${localVarPath}`,
+        return this.httpClient.request<StudentDto>('get', `${basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,
@@ -216,16 +216,16 @@ export class InstrumentService extends BaseService {
     }
 
     /**
-     * @endpoint put /api/v1/Instrument/UpdateInstrument
-     * @param updateInstrumentDto 
+     * @endpoint put /api/v1/Student/UpdateStudent
+     * @param updateStudentDto 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public apiV1InstrumentUpdateInstrumentPut(updateInstrumentDto?: UpdateInstrumentDto, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public apiV1InstrumentUpdateInstrumentPut(updateInstrumentDto?: UpdateInstrumentDto, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public apiV1InstrumentUpdateInstrumentPut(updateInstrumentDto?: UpdateInstrumentDto, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public apiV1InstrumentUpdateInstrumentPut(updateInstrumentDto?: UpdateInstrumentDto, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public apiV1StudentUpdateStudentPut(updateStudentDto?: UpdateStudentDto, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public apiV1StudentUpdateStudentPut(updateStudentDto?: UpdateStudentDto, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public apiV1StudentUpdateStudentPut(updateStudentDto?: UpdateStudentDto, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public apiV1StudentUpdateStudentPut(updateStudentDto?: UpdateStudentDto, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -262,12 +262,12 @@ export class InstrumentService extends BaseService {
             }
         }
 
-        let localVarPath = `/api/v1/Instrument/UpdateInstrument`;
+        let localVarPath = `/api/v1/Student/UpdateStudent`;
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<any>('put', `${basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
-                body: updateInstrumentDto,
+                body: updateStudentDto,
                 responseType: <any>responseType_,
                 ...(withCredentials ? { withCredentials } : {}),
                 headers: localVarHeaders,

@@ -12,8 +12,8 @@ export class Sidebar {
   mainNavi: PagesConfig[] = [
     { label: 'Dashboard', icon: 'dashboard', route: '/Dashboard' },
     { label: 'Lehrer', icon: 'person', route: '/Teachers' },
-    { label: 'Räume', icon: 'door_open', route: '/Rooms' },
     { label: 'Schüler', icon: 'group', route: '/Students' },
+    { label: 'Räume', icon: 'door_open', route: '/Rooms' },
     { label: 'Stundenplan', icon: 'calendar_month', route: '/Schedule' },
     { label: 'Materialien', icon: 'library_books', route: '/Materials' },
   ];

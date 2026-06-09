@@ -60,7 +60,9 @@
   text-decoration: none;
   font-size: 1.2rem;
   font-weight: 300;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
   cursor: pointer;
   border-left: 5px solid transparent;
 }
@@ -72,7 +74,11 @@
 
 .sidebar__nav-icon {
   font-size: 1.2rem;
-  font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 200,
+    'GRAD' 0,
+    'opsz' 24;
 }
 
 /* ---- Active Link ---- */
@@ -83,7 +89,11 @@
 }
 
 .active-link .sidebar__nav-icon {
-  font-variation-settings: 'FILL' 1, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+  font-variation-settings:
+    'FILL' 1,
+    'wght' 300,
+    'GRAD' 0,
+    'opsz' 24;
 }
 
 /* ---- Spacer ---- */
@@ -97,6 +107,5 @@
   flex-direction: column;
   gap: 0.15rem;
   padding-top: 0.75rem;
-  border-top: 1px solid var(--color-secondary);
+  border-top: 1px solid var(--color-spacer);
 }
-
