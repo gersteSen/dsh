@@ -18,6 +18,8 @@
 @theme {
   --font-*: initial;
   --font-sans: Hanken Grotesk;
+  --font-light: Hanken Grotesk light;
+  --font-thin: Hanken Grotesk thin;
   --font-number: Intel One Mono;
   --color-general-bg: #343e42;
   --color-surface: #1f2629;
@@ -35,6 +37,19 @@
   src: url('../src/assets/Hanken_Grotesk/HankenGrotesk-VariableFont_wght.ttf')
     format('truetype-variations');
 }
+
+@font-face {
+  font-family: 'Hanken Grotesk light';
+  src: url('../src/assets/Hanken_Grotesk/static/HankenGrotesk-Light.ttf')
+  format('truetype-variations');
+}
+
+@font-face {
+  font-family: 'Hanken Grotesk thin';
+  src: url('../src/assets/Hanken_Grotesk/static/HankenGrotesk-Thin.ttf')
+  format('truetype-variations');
+}
+
 
 @font-face {
   font-family: 'Inter';

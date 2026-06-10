@@ -1,8 +1,17 @@
 ﻿import { Routes } from '@angular/router';
+import { TeacherPage } from '@app/Teacher/teacher';
 
 export const TEACHER_ROUTES: Routes = [
   {
     path: '',
-    loadComponent: () => import('./teachers/teachers').then((t) => t.Teachers),
+    component: TeacherPage,
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        loadComponent: () =>
+          import('./teachers/teachers').then((t) => t.Teachers),
+      },
+    ],
   },
 ];
