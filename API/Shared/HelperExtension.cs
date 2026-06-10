@@ -38,7 +38,8 @@ public static class HelperExtension
             Birthday = teacher.Birthday,
             Avatar = teacher.Avatar,
             Sex = teacher.Sex,
-            Active = teacher.Active
+            Active = teacher.Active,
+            Instruments = teacher.Instruments.Select(instrument => instrument.ToDto()).ToArray()
         };
     }
 

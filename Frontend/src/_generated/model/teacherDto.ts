@@ -7,6 +7,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { InstrumentDto } from './instrumentDto';
 import { Sex } from './sex';
 
 
@@ -20,6 +21,7 @@ export interface TeacherDto {
     birthday?: string | null;
     activeSince?: string | null;
     active?: boolean;
+    instruments?: Array<InstrumentDto> | null;
 }
 export namespace TeacherDto {
 }

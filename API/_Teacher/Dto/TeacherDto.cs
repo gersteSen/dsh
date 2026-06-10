@@ -1,4 +1,5 @@
-﻿using API.Shared;
+﻿using API._Instrument.Dto;
+using API.Shared;
 
 namespace API._Teacher.Dto;
 
@@ -13,4 +14,5 @@ public class TeacherDto
     public DateOnly? Birthday { get; set; }
     public DateOnly? ActiveSince { get; set; }
     public Boolean Active { get; set; } = true;
+    public InstrumentDto[] Instruments { get; set; } = Array.Empty<InstrumentDto>();
 }

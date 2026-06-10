@@ -1,0 +1,35 @@
+<div class="w-64 overflow-hidden bg-surface shadow-xl">
+
+  <!-- Profilbild -->
+  <div class="w-full">
+    <img
+      [src]="avatarImage()"
+      [alt]="teacher().fullName ?? ''"
+      class="w-full h-64 object-cover object-top"
+    />
+  </div>
+
+  <!-- Inhalt -->
+  <div class="px-5 pt-4 pb-5">
+
+    <!-- Name -->
+    <h3 class="text-white font-bold text-lg leading-snug mb-0.5">
+      {{ teacher().fullName }}
+    </h3>
+
+    <!-- Titel / Status -->
+    <p class="text-condensed text-sm mb-4">
+      @for(instrument of teacher().instruments; track instrument.id) {
+        {{ instrument.name }}
+      }
+    </p>
+
+    <!-- Beschreibung -->
+    <p class="text-white text-sm leading-relaxed mb-5">
+      Dabei seit {{ teacher().activeSince?.slice(0, 4) }}.
+      Unterrichtet mit Begeisterung und langjähriger Erfahrung.
+    </p>
+
+  </div>
+
+</div>

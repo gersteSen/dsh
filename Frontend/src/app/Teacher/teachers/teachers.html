@@ -1,1 +1,6 @@
-<p>teachers works!</p>
+
+<div class="flex gap-8 flex-wrap">
+@for (teacher of teachers(); track teacher.id) {
+  <dsh-teacher-card [teacher]="teacher" />
+}
+</div>
