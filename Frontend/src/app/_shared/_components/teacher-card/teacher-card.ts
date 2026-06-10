@@ -1,9 +1,10 @@
 import { Component, computed, input } from '@angular/core';
 import { TeacherDto } from '@generated/model/teacherDto';
+import { Chip } from '@shared/_components/chip/chip';
 
 @Component({
   selector: 'dsh-teacher-card',
-  imports: [],
+  imports: [Chip],
   templateUrl: './teacher-card.html',
   styleUrl: './teacher-card.css',
 })

@@ -18,9 +18,9 @@
     </h3>
 
     <!-- Titel / Status -->
-    <p class="text-condensed text-sm mb-4">
+    <p class="text-condensed text-sm mb-4 flex gap-4">
       @for(instrument of teacher().instruments; track instrument.id) {
-        {{ instrument.name }}
+        <dsh-chip [label]="instrument.name!" />
       }
     </p>
 
