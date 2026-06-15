@@ -1,26 +1,23 @@
-<div class="w-64 overflow-hidden bg-surface shadow-xl">
+<div class="w-64 overflow-hidden bg-surface shadow-xl hover:shadow-2xl relative">
 
   <!-- Profilbild -->
   <div class="w-full">
-    <img
-      [src]="avatarImage()"
-      [alt]="teacher().fullName ?? ''"
-      class="w-full h-64 object-cover object-top"
-    />
+    <img [src]="avatarImage()" [alt]="teacher().fullName ?? ''" class="w-full h-64 object-cover object-top" />
   </div>
 
   <!-- Inhalt -->
   <div class="px-5 pt-4 pb-5">
 
     <!-- Name -->
-    <h3 class="text-white font-bold text-lg leading-snug mb-0.5">
+    <h3 class="text-white font-bold text-lg leading-snug mb-0.5 flex items-center gap-1">
+      <dsh-icon (click)="navigateToTeacher()" icon="open_in_new" classes="hover:cursor-pointer hover:text-primary text-secondary mt-2" />
       {{ teacher().fullName }}
     </h3>
 
     <!-- Titel / Status -->
     <p class="text-condensed text-sm mb-4 flex gap-4">
       @for(instrument of teacher().instruments; track instrument.id) {
-        <dsh-chip [label]="instrument.name!" />
+      <dsh-chip [label]="instrument.name!" />
       }
     </p>
 

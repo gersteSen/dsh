@@ -12,6 +12,10 @@ export const TEACHER_ROUTES: Routes = [
         loadComponent: () =>
           import('./teachers/teachers').then((t) => t.Teachers),
       },
+      {
+        path: ':teacherId',
+        loadComponent: () => import('./teacher/teacher').then((t) => t.Teacher),
+      },
     ],
   },
 ];
