@@ -1,1 +1,26 @@
-<p>teacher works!</p>
+<div class="h-full grid grid-cols-2">
+    <div class="bg-white p-8">
+
+        <!-- Teacher Avatar -->
+        <img [src]="avatarImage()" [alt]="teacher()?.fullName" class="h-90" />
+
+        <!-- Teacher Details -->
+        <div class="mt-4">
+            <h2 class="text-2xl font-bold">{{ teacher()?.fullName }}</h2>
+            <p class="text-gray-600">Geburtstag: {{ teacher()?.birthday | date: 'dd.MM.yyyy' }}</p>
+            <p class="text-gray-600">Geschlecht: {{ teacher()?.sex | sex }}</p>
+            <p class="text-gray-600">Dabei seit: {{ teacher()?.birthday | date: 'dd.MM.yyyy' }}</p>
+            Instrumente:
+            @for(instrument of teacher()?.instruments; track instrument.id)
+            {
+            <dsh-chip [label]="instrument.name!" />
+            }
+
+            <button>
+                <dsh-icon icon="add" classes="rounded-full bg-primary text-white p-2 shadow hover:opacity-75 cursor-pointer mt-8 " />
+            </button>
+        </div>
+
+    </div>
+    <div></div>
+</div>

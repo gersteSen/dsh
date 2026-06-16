@@ -5,6 +5,7 @@
   "compilerOptions": {
     "strict": true,
     "noImplicitOverride": true,
+    "ignoreDeprecations": "6.0",
     "baseUrl": "./",
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,

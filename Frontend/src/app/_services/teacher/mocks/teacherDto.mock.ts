@@ -3,7 +3,7 @@ import { instrumentDtoMock } from '@services/instrument/mock/instrumentDto.mock'
 
 export const teacherDtoMock = ({
   sex = Sex.NUMBER_0,
-  avatar = 'teacher_1.jpg',
+  avatar = null,
   firstName = 'John',
   lastName = 'Doe',
   birthday = '2000-01-01',

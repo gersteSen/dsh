@@ -1,6 +1,8 @@
-<div class="h-36.25 shadow-2xs bg-secondary mb-16 flex justify-between items-center px-8">
-  <div class="text-6xl text-white font-thin uppercase">{{titel()}}</div>
-</div>
-<div class="px-8">
-  <router-outlet></router-outlet>
-</div>
+<section class="h-screen grid grid-rows-[145px_1fr]">
+  <div class=" shadow-2xs bg-secondary flex justify-between items-center px-8">
+    <div class="text-6xl text-white font-thin uppercase">{{titel()}}</div>
+  </div>
+  <div class="h-full">
+    <router-outlet></router-outlet>
+  </div>
+</section>
