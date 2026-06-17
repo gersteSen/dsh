@@ -66,5 +66,5 @@
 
 @if(showDialog())
 {
-<dsh-teacher-add-instrument-dialog (closeEvent)="showDialog.set(false)" />
+<dsh-teacher-add-instrument-dialog [activeInstruments]="teacher()?.instruments ?? []" (closeEvent)="showDialog.set(false)" />
 }

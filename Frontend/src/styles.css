@@ -30,6 +30,8 @@
   --color-primary: #e67e22;
   --color-secondary: #99bfc2;
   --color-secondary-dark: #37595c;
+
+  --color-success: var(--color-green-500);
 }
 
 @font-face {
@@ -71,5 +73,5 @@
 }
 
 .heading-dark-md {
-  @apply text-2xl text-condensed font-light uppercase;
+  @apply text-2xl text-secondary font-light uppercase;
 }

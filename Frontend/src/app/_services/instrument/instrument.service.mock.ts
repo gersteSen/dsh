@@ -14,10 +14,26 @@ import { instrumentDtoMock } from './mock/instrumentDto.mock';
 export class InstrumentMockService implements InstrumentServiceInterface {
   getAllInstruments(): Observable<InstrumentDto[]> {
     return of([
-      instrumentDtoMock({ name: 'Gitarre' }),
-      instrumentDtoMock({ name: 'Drums' }),
-      instrumentDtoMock({ name: 'Gesang' }),
-      instrumentDtoMock({ name: 'Klavier' }),
+      instrumentDtoMock({
+        name: 'Drums',
+        description: 'Beschreibung der Drums',
+        image: 'images/instrument_2.jpg',
+      }),
+      instrumentDtoMock({
+        name: 'Gitarre',
+        description: 'Beschreibung der Gitarre',
+        image: 'images/instrument_1.jpg',
+      }),
+      instrumentDtoMock({
+        name: 'Bass',
+        description: 'Beschreibung des Basses',
+        image: 'images/instrument_3.jpg',
+      }),
+      instrumentDtoMock({
+        name: 'Gesang',
+        description: 'Beschreibung des Gesangs',
+        image: 'images/instrument_4.jpg',
+      }),
     ]);
   }
   getInstrumentById(id: string): Observable<InstrumentDto> {

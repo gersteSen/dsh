@@ -7,6 +7,7 @@ import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 
+import { InstrumentServiceProvider } from './_services/instrument/instrument.provider';
 import { TeacherServiceProvider } from './_services/teacher/teacher.provider';
 import { routes } from './app.routes';
 
@@ -14,6 +15,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     ...TeacherServiceProvider,
+    ...InstrumentServiceProvider,
     provideRouter(routes, withComponentInputBinding()),
     provideStore(),
     provideStoreDevtools({
