@@ -33,18 +33,18 @@
 
             <div class=" py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 <dt class="text-sm font-medium text-gray-900">Instrumente</dt>
-                <dd class="mt-1 text-sm text-gray-700 sm:col-span-2 sm:mt-0">
+                <dd class="mt-1 text-sm text-gray-700 sm:col-span-2 sm:mt-0 gap-1 flex flex-wrap">
                     @if (teacher()?.instruments && teacher()?.instruments!.length > 0) {
-                    <ul class="flex flex-wrap gap-1">
-                        @for (instrument of teacher()?.instruments; track instrument.id) {
-                        <li class="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700">{{ instrument.name }}</li>
-                        }
-                    </ul>
+
+                    @for (instrument of teacher()?.instruments; track instrument.id) {
+                    <dsh-chip [label]="instrument.name!" />
+                    }
+
                     } @else {
                     <span class="text-gray-400">Keine Instrumente</span>
                     }
-                    <dsh-icon-button />
                 </dd>
+                <dsh-icon-button />
             </div>
 
         </dl>

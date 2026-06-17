@@ -6,10 +6,10 @@ import {
   TeacherDto,
   UpdateTeacherDto,
 } from '@generated/index';
+import { instrumentDtoMock } from '@services/instrument/mock/instrumentDto.mock';
 import { Observable, of } from 'rxjs';
 import { teacherDtoMock } from './mocks/teacherDto.mock';
 import { TeacherServiceInterface } from './teacher.service.interface';
-import { instrumentDtoMock } from '@services/instrument/mock/instrumentDto.mock';
 
 @Injectable({
   providedIn: 'root',
@@ -34,6 +34,10 @@ export class TeacherMockService implements TeacherServiceInterface {
           instrumentDtoMock({
             name: 'Drums',
             image: 'images/instrument_2.jpg',
+          }),
+          instrumentDtoMock({
+            name: 'Gitarre',
+            image: 'images/instrument_1.jpg',
           }),
         ],
       }),
