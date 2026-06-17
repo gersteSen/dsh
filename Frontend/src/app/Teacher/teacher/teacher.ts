@@ -1,45 +1,39 @@
+import { CommonModule } from '@angular/common';
 import {
   Component,
   computed,
+  effect,
   inject,
-  input,
-  resource,
-  ResourceRef,
+  OnInit,
+  signal,
 } from '@angular/core';
 import { TEACHER_SERVICE } from '@app/_services/teacher/teacher.service.interface';
 import { TeacherDto } from '@generated/model/models';
-
-import { CommonModule } from '@angular/common';
-import { Chip } from '@app/_shared/_components/chip/chip';
-import { Icon } from '@app/_shared/_components/icon/icon';
-import { firstValueFrom } from 'rxjs';
-import { SexPipe } from '../../_utils/pipes/sex/sex-pipe';
+import { TeacherStateStore } from '../_store/teacher-state.store';
+import { TeacherDetail } from './teacher-detail/teacher-detail';
 
 @Component({
   selector: 'dsh-teacher',
-  imports: [SexPipe, CommonModule, Icon, Chip],
+  imports: [CommonModule, TeacherDetail],
   templateUrl: './teacher.html',
   styleUrl: './teacher.css',
 })
-export class Teacher {
+export class Teacher implements OnInit {
   #teacherService = inject(TEACHER_SERVICE);
+  #teacherStore = inject(TeacherStateStore);
 
-  teacherId = input.required<string>();
-
-  teacherResouce: ResourceRef<TeacherDto | undefined> = resource({
-    params: this.teacherId,
-    loader: ({ params }) =>
-      firstValueFrom(this.#teacherService.getTeacherById(params)),
-  });
-
-  teacher = computed<TeacherDto | undefined>(() => {
-    if (this.teacherResouce.hasValue()) {
-      return this.teacherResouce.value();
-    }
-    return undefined;
-  });
-
+  teacher = signal<TeacherDto | null>(null);
   avatarImage = computed<string>(
     () => this.teacher()?.avatar ?? 'images/placeholder.jpg',
   );
+
+  constructor() {
+    effect(() => {
+      this.teacher.set(this.#teacherStore.selectedTeacher());
+    });
+  }
+
+  ngOnInit(): void {
+    console.log(this.#teacherStore.selectedTeacher());
+  }
 }

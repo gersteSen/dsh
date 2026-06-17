@@ -1,7 +1,7 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
-import { TEACHER_SERVICE } from '@services/teacher/teacher.service.interface';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { TeacherDto } from '@generated/model/teacherDto';
+import { TEACHER_SERVICE } from '@services/teacher/teacher.service.interface';
 import { TeacherCard } from '@shared/_components/teacher-card/teacher-card';
 
 @Component({
