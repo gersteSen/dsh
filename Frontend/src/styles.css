@@ -41,15 +41,14 @@
 @font-face {
   font-family: 'Hanken Grotesk light';
   src: url('../src/assets/Hanken_Grotesk/static/HankenGrotesk-Light.ttf')
-  format('truetype-variations');
+    format('truetype-variations');
 }
 
 @font-face {
   font-family: 'Hanken Grotesk thin';
   src: url('../src/assets/Hanken_Grotesk/static/HankenGrotesk-Thin.ttf')
-  format('truetype-variations');
+    format('truetype-variations');
 }
-
 
 @font-face {
   font-family: 'Inter';
@@ -61,4 +60,16 @@
   font-family: 'Intel One Mono';
   src: url('../src/assets/Intel_One_Mono/IntelOneMono-VariableFont_wght.ttf')
     format('truetype-variations');
+}
+
+.heading-white {
+  @apply text-6xl text-white font-thin uppercase;
+}
+
+.heading-dark {
+  @apply text-6xl text-secondary font-thin uppercase;
+}
+
+.heading-dark-md {
+  @apply text-2xl text-condensed font-light uppercase;
 }
