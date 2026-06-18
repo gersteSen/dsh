@@ -1,9 +1,9 @@
-import { InstrumentDto, TeacherDto } from '@generated/index';
+import { TeacherDto, TeacherInstrumentDto } from '@generated/index';
 import { patchState, signalStore, withMethods, withState } from '@ngrx/signals';
 
-type TeacherState = {
+interface TeacherState {
   selectedTeacher: TeacherDto | null;
-};
+}
 
 const initialState: TeacherState = {
   selectedTeacher: null,
@@ -18,20 +18,28 @@ export const TeacherStateStore = signalStore(
         selectedTeacher: teacher,
       }));
     },
-    toggleInstrument(instrument: InstrumentDto): void {
+    toggleInstrument(instrument: TeacherInstrumentDto): void {
       const selectedTeacher = store.selectedTeacher;
       if (!selectedTeacher) {
         return;
       } else {
-        const instruments = selectedTeacher()?.instruments ?? [];
-        if (!instruments.some((i) => i.name === instrument.name)) {
-          patchState(store, (_state) => ({
-            selectedTeacher: {
-              ...selectedTeacher(),
-              instruments: [...instruments, instrument],
-            },
-          }));
-        }
+        const instruments =
+          store.selectedTeacher()?.instruments?.map((i) => {
+            if (i.id === instrument.id) {
+              return {
+                ...i,
+                active: instrument.active,
+              };
+            } else {
+              return i;
+            }
+          }) ?? [];
+        patchState(store, (_state) => ({
+          selectedTeacher: {
+            ...selectedTeacher(),
+            instruments,
+          },
+        }));
       }
     },
   })),

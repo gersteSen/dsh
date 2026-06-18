@@ -30,6 +30,7 @@ model/roomDto.ts
 model/sex.ts
 model/studentDto.ts
 model/teacherDto.ts
+model/teacherInstrumentDto.ts
 model/updateInstrumentDto.ts
 model/updateLessonDto.ts
 model/updateMaterialDto.ts

@@ -14,6 +14,7 @@ export * from './roomDto';
 export * from './sex';
 export * from './studentDto';
 export * from './teacherDto';
+export * from './teacherInstrumentDto';
 export * from './updateInstrumentDto';
 export * from './updateLessonDto';
 export * from './updateMaterialDto';

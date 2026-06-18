@@ -46,9 +46,9 @@
             <div class=" py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 <dt class="text-sm font-medium text-gray-900">Instrumente</dt>
                 <dd class="text-sm text-gray-700 sm:col-span-2 sm:mt-0 gap-1 flex flex-wrap items-center">
-                    @if (teacher()?.instruments && teacher()?.instruments!.length > 0) {
+                    @if (activeInstruments() && activeInstruments().length > 0) {
 
-                    @for (instrument of teacher()?.instruments; track instrument.id) {
+                    @for (instrument of activeInstruments(); track instrument.id) {
                     <dsh-chip [label]="instrument.name!" />
                     }
 

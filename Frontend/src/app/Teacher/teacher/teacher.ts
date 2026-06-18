@@ -1,13 +1,5 @@
 import { CommonModule } from '@angular/common';
-import {
-  Component,
-  computed,
-  effect,
-  inject,
-  OnInit,
-  signal,
-} from '@angular/core';
-import { TEACHER_SERVICE } from '@app/_services/teacher/teacher.service.interface';
+import { Component, computed, effect, inject, signal } from '@angular/core';
 import { TeacherDto } from '@generated/model/models';
 import { TeacherStateStore } from '../_store/teacher-state.store';
 import { TeacherDetail } from './teacher-detail/teacher-detail';
@@ -18,8 +10,7 @@ import { TeacherDetail } from './teacher-detail/teacher-detail';
   templateUrl: './teacher.html',
   styleUrl: './teacher.css',
 })
-export class Teacher implements OnInit {
-  #teacherService = inject(TEACHER_SERVICE);
+export class Teacher {
   #teacherStore = inject(TeacherStateStore);
 
   teacher = signal<TeacherDto | null>(null);
@@ -31,9 +22,5 @@ export class Teacher implements OnInit {
     effect(() => {
       this.teacher.set(this.#teacherStore.selectedTeacher());
     });
-  }
-
-  ngOnInit(): void {
-    console.log(this.#teacherStore.selectedTeacher());
   }
 }

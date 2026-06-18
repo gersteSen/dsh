@@ -7,6 +7,9 @@ import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 
+import { environment } from 'src/environments/environment';
+import { ENV } from 'src/environments/environment.interface';
+import { provideApi } from 'src/_generated/provide-api';
 import { InstrumentServiceProvider } from './_services/instrument/instrument.provider';
 import { TeacherServiceProvider } from './_services/teacher/teacher.provider';
 import { routes } from './app.routes';
@@ -14,6 +17,8 @@ import { routes } from './app.routes';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
+    { provide: ENV, useValue: environment },
+    provideApi(''),
     ...TeacherServiceProvider,
     ...InstrumentServiceProvider,
     provideRouter(routes, withComponentInputBinding()),

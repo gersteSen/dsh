@@ -9,10 +9,11 @@
  */
 
 
-export interface InstrumentDto { 
+export interface TeacherInstrumentDto { 
     id?: string;
     name?: string | null;
     description?: string | null;
     image?: string | null;
+    active?: boolean;
 }
 

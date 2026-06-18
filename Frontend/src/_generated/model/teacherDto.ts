@@ -7,8 +7,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { InstrumentDto } from './instrumentDto';
 import { Sex } from './sex';
+import { TeacherInstrumentDto } from './teacherInstrumentDto';
 
 
 export interface TeacherDto { 
@@ -21,7 +21,7 @@ export interface TeacherDto {
     birthday?: string | null;
     activeSince?: string | null;
     active?: boolean;
-    instruments?: Array<InstrumentDto> | null;
+    instruments?: Array<TeacherInstrumentDto> | null;
 }
 export namespace TeacherDto {
 }

@@ -1,4 +1,8 @@
 import { isDevMode, Provider } from '@angular/core';
+import {
+  ENV,
+  EnvironmentInterface,
+} from 'src/environments/environment.interface';
 import { TeacherService } from './teacher.service';
 import {
   TEACHER_SERVICE,
@@ -10,9 +14,14 @@ export const TeacherServiceProvider: Provider[] = [
   TeacherService,
   {
     provide: TEACHER_SERVICE,
-    useFactory: (service: TeacherService): TeacherServiceInterface => {
-      return isDevMode() ? new TeacherMockService() : service;
+    useFactory: (
+      service: TeacherService,
+      env: EnvironmentInterface,
+    ): TeacherServiceInterface => {
+      return env.useMock?.teacherMock && isDevMode()
+        ? new TeacherMockService()
+        : service;
     },
-    deps: [TeacherService],
+    deps: [TeacherService, ENV],
   },
 ];

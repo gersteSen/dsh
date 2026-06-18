@@ -68,6 +68,14 @@
   @apply text-6xl text-white font-thin uppercase;
 }
 
+.heading-white-md {
+  @apply  text-2xl text-white font-thin uppercase;
+}
+
+.heading-dark-md {
+  @apply  text-2xl text-secondary font-thin uppercase;
+}
+
 .heading-dark {
   @apply text-6xl text-secondary font-thin uppercase;
 }

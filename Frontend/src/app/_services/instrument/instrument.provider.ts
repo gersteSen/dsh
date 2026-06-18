@@ -1,4 +1,8 @@
 import { isDevMode, Provider } from '@angular/core';
+import {
+  ENV,
+  EnvironmentInterface,
+} from 'src/environments/environment.interface';
 import { InstrumentService } from './instrument.service';
 import {
   INSTRUMENT_SERVICE,
@@ -10,9 +14,14 @@ export const InstrumentServiceProvider: Provider[] = [
   InstrumentService,
   {
     provide: INSTRUMENT_SERVICE,
-    useFactory: (service: InstrumentService): InstrumentServiceInterface => {
-      return isDevMode() ? new InstrumentMockService() : service;
+    useFactory: (
+      service: InstrumentService,
+      env: EnvironmentInterface,
+    ): InstrumentServiceInterface => {
+      return env.useMock?.instrumentMock && isDevMode()
+        ? new InstrumentMockService()
+        : service;
     },
-    deps: [InstrumentService],
+    deps: [InstrumentService, ENV],
   },
 ];

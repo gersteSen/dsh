@@ -1,40 +1,22 @@
-import { Component, inject, input, output, resource } from '@angular/core';
-import { INSTRUMENT_SERVICE } from '@app/_services/instrument/instrument.service.interface';
-import { InstrumentDto } from '@generated/model/instrumentDto';
-import { Icon } from '@shared/_components/icon/icon';
-import { lastValueFrom } from 'rxjs';
+import { Component, computed, inject, output } from '@angular/core';
+import { TeacherInstrumentDto } from '@generated/model/models';
+import { InstrumentCard } from '@shared/_components/instrument-card/instrument-card';
+import { TeacherStateStore } from '@app/Teacher/_store/teacher-state.store';
 
 @Component({
   selector: 'dsh-instrument-list',
-  imports: [Icon],
+  imports: [InstrumentCard],
   templateUrl: './instrument-list.html',
   styleUrl: './instrument-list.css',
 })
 export class InstrumentList {
-  acitveInstruments = input<InstrumentDto[]>([]);
+  store = inject(TeacherStateStore);
+  instrumentList = computed(() => this.store.selectedTeacher()?.instruments ?? []);
 
-  #instrumentService = inject(INSTRUMENT_SERVICE);
+  protected toggleInstrumentEvent = output<TeacherInstrumentDto>();
 
-  instrumentResource = resource({
-    loader: () => lastValueFrom(this.#instrumentService.getAllInstruments()),
-  });
-
-  aktivClicked = output<InstrumentDto>();
-  inaktivClicked = output<InstrumentDto>();
-
-  protected onAktiv(instrument: InstrumentDto): void {
-    this.aktivClicked.emit(instrument);
-  }
-
-  protected onInaktiv(instrument: InstrumentDto): void {
-    this.inaktivClicked.emit(instrument);
-  }
-
-  protected isActive(instrument: InstrumentDto): boolean {
-    if (instrument.aktiv) {
-      return true;
-    } else {
-      return this.acitveInstruments().some((i) => i.name === instrument.name);
-    }
+  protected toggleInstrument($event: TeacherInstrumentDto) {
+    this.store.toggleInstrument($event);
+    console.log('current State of Teacher: ', this.store.selectedTeacher());
   }
 }

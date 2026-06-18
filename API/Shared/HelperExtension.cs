@@ -25,8 +25,20 @@ public static class HelperExtension
             Image = instrument.Image
         };
     }
+    
+    public static TeacherInstrumentDto ToDto(this Instrument instrument, bool isActive)
+    {
+        return new TeacherInstrumentDto
+        {
+            Id = instrument.Id,
+            Name = instrument.Name,
+            Description = instrument.Description,
+            Image = instrument.Image,
+            Active = isActive
+        };
+    }
 
-    public static TeacherDto ToDto(this Teacher teacher)
+    public static TeacherDto ToDto(this Teacher teacher, List<Instrument> instruments)
     {
         return new TeacherDto
         {
@@ -39,7 +51,7 @@ public static class HelperExtension
             Avatar = teacher.Avatar,
             Sex = teacher.Sex,
             Active = teacher.Active,
-            Instruments = teacher.Instruments.Select(instrument => instrument.ToDto()).ToArray()
+            Instruments = instruments.Select(i => i.ToDto(teacher.Instruments.Any(ti => ti.Id == i.Id))).ToArray()
         };
     }
 

@@ -1,6 +1,7 @@
 import { Component, computed, inject, input } from '@angular/core';
 import { Router } from '@angular/router';
 import { TeacherStateStore } from '@app/Teacher/_store/teacher-state.store';
+import { TeacherInstrumentDto } from '@generated/index';
 import { TeacherDto } from '@generated/model/teacherDto';
 import { Chip } from '@shared/_components/chip/chip';
 import { Icon } from '../icon/icon';
@@ -13,9 +14,13 @@ import { Icon } from '../icon/icon';
 })
 export class TeacherCard {
   readonly teacherStore = inject(TeacherStateStore);
+  #router = inject(Router);
   teacher = input.required<TeacherDto>();
 
-  #router = inject(Router);
+  activeInstruments = computed<TeacherInstrumentDto[]>(
+    () => this.teacher()?.instruments?.filter((x) => x.active) ?? [],
+  );
+
   avatarImage = computed<string>(
     () => this.teacher()?.avatar ?? 'images/placeholder.jpg',
   );

@@ -14,5 +14,5 @@ public class TeacherDto
     public DateOnly? Birthday { get; set; }
     public DateOnly? ActiveSince { get; set; }
     public Boolean Active { get; set; } = true;
-    public InstrumentDto[] Instruments { get; set; } = Array.Empty<InstrumentDto>();
+    public TeacherInstrumentDto[] Instruments { get; set; } = Array.Empty<TeacherInstrumentDto>();
 }

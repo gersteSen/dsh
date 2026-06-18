@@ -49,8 +49,10 @@ public class TeacherRepository(DshDatabaseContext context) : ITeacherRepository
             .Include(t => t.Materials)
             .Include(t => t.Students)
             .ToListAsync(cancellationToken);
+        
+        var instruments = await context.Instruments.ToListAsync(cancellationToken);
 
-        return teachers.Select(teacher => teacher.ToDto()).ToList();
+        return teachers.Select(teacher => teacher.ToDto(instruments)).ToList();
     }
 
     public async Task<TeacherDto> GetTeacherById(Guid teacherId, CancellationToken cancellationToken = default)
@@ -63,9 +65,11 @@ public class TeacherRepository(DshDatabaseContext context) : ITeacherRepository
             .Include(t => t.Students)
             .FirstOrDefaultAsync(t => t.Id == teacherId, cancellationToken);
 
+        var instruments = await context.Instruments.ToListAsync(cancellationToken);
+
         if (teacher is null) throw new KeyNotFoundException($"Kein Lehrer mit der Id vorhanden: {teacherId}");
 
-        return teacher.ToDto();
+        return teacher.ToDto(instruments);
     }
 
     public async Task<List<StudentDto>> GetAllStudentsByTeacherId(Guid teacherId, CancellationToken cancellationToken = default)

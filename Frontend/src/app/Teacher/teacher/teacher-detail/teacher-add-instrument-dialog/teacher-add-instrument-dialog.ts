@@ -1,7 +1,7 @@
-import { Component, input, output, signal } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { Dialog, DialogData } from '@app/_shared/_components/dialog/dialog';
 import { InstrumentList } from '@app/_shared/_components/instrument-list/instrument-list';
-import { InstrumentDto } from '@generated/index';
+import { TeacherInstrumentDto } from '@generated/index';
 
 @Component({
   selector: 'dsh-teacher-add-instrument-dialog',
@@ -10,8 +10,7 @@ import { InstrumentDto } from '@generated/index';
   styleUrl: './teacher-add-instrument-dialog.css',
 })
 export class TeacherAddInstrumentDialog {
-  activeInstruments = input<InstrumentDto[]>([]);
-  showDialog = signal<boolean>(false);
+  activeInstruments = input<TeacherInstrumentDto[]>([]);
   dialogData: DialogData = {
     title: 'Aktive Instrumente pflegen',
   };

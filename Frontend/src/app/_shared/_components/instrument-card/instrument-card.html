@@ -1,0 +1,34 @@
+<div [class.opacity-95]="!isActive()" class="w-64 overflow-hidden bg-surface shadow-xl transition-opacity duration-300 hover:shadow-2xl">
+  <!-- Rundes Bild -->
+  <div class="flex justify-center pt-6 pb-3">
+    <img [src]="localInstrument()?.image ?? 'images/placeholder.jpg'" [alt]="localInstrument()?.name ?? ''" class="h-24 w-24 rounded-full object-cover object-top ring-4 ring-surface" />
+  </div>
+
+  <!-- Name und Beschreibung -->
+  <div class="px-5 pb-5 text-center">
+    <h3 class="mb-1 text-lg font-bold leading-snug text-white">
+      {{ localInstrument()?.name }}
+    </h3>
+    <p class="mb-4 text-sm text-secondary">{{ localInstrument()?.description }}</p>
+  </div>
+
+  <!-- Trennlinie -->
+  <div class="border-t border-spacer"></div>
+
+  <!-- Buttons -->
+  <div class="flex divide-x divide-spacer">
+    <button (click)="onAktiv()"
+            class="flex flex-1 items-center justify-center gap-2 py-3 text-sm text-white transition-colors hover:bg-hovered cursor-pointer"
+            [class.bg-success]="isActive()"
+            [class.hover:bg-success]="isActive()"
+            [class.hover:bg-hovered]="!isActive()"
+    >
+      <dsh-icon icon="check_circle" classes="mt-1" />
+      Aktiv
+    </button>
+    <button (click)="onInaktiv()" class="flex flex-1 items-center justify-center gap-2 py-3 text-sm text-white transition-colors hover:bg-hovered cursor-pointer">
+      <dsh-icon icon="cancel" />
+      Inaktiv
+    </button>
+  </div>
+</div>
