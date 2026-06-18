@@ -26,7 +26,7 @@ export class TeacherCard {
   );
 
   protected navigateToTeacher() {
-    this.teacherStore.setSelectedTeacher(this.teacher());
+    this.teacherStore.setSelectedTeacherRXJS(this.teacher().id!);
 
     this.#router.navigate([`./Teachers/${this.teacher()?.id}`], {
       queryParams: { teacherFullName: this.teacher()?.fullName },
