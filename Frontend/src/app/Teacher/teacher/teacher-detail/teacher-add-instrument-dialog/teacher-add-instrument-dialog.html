@@ -1,6 +1,9 @@
 <dsh-dialog [dialogData]="dialogData" (closeEvent)="onClick()">
 
-    <dsh-instrument-list />
-
+  <div class="flex flex-wrap gap-6 mx-auto">
+  @for (instrument of activeInstruments(); track instrument.id) {
+    <dsh-instrument-card [instrument]="instrument" (toggleInstrumentEvent)="toggleInstrument($event)"/>
+  }
+  </div>
 
 </dsh-dialog>

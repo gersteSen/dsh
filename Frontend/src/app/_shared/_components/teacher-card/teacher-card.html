@@ -15,7 +15,7 @@
     </h3>
 
     <!-- Titel / Status -->
-    <p class="text-condensed text-sm mb-4 flex gap-4">
+    <p class="text-condensed text-sm mb-4 flex gap-1">
       @for(instrument of activeInstruments(); track instrument.id) {
       <dsh-chip [label]="instrument.name!" />
       }

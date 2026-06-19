@@ -1,8 +1,6 @@
-import { HttpErrorResponse } from '@angular/common/http';
-import { Component, inject, OnInit, signal } from '@angular/core';
-import { TeacherDto } from '@generated/model/teacherDto';
-import { TEACHER_SERVICE } from '@services/teacher/teacher.service.interface';
+import { Component, inject } from '@angular/core';
 import { TeacherCard } from '@shared/_components/teacher-card/teacher-card';
+import { TeacherStateStore } from '@app/Teacher/_store/teacher-state.store';
 
 @Component({
   selector: 'dsh-teachers',
@@ -10,17 +8,10 @@ import { TeacherCard } from '@shared/_components/teacher-card/teacher-card';
   templateUrl: './teachers.html',
   styleUrl: './teachers.css',
 })
-export class Teachers implements OnInit {
-  teacherService = inject(TEACHER_SERVICE);
-  teachers = signal<TeacherDto[]>([]);
+export class Teachers {
+  store = inject(TeacherStateStore);
 
-  ngOnInit(): void {
-    this.teacherService.getAllTeachers().subscribe({
-      next: (teachers: TeacherDto[]) => {
-        this.teachers.set(teachers);
-      },
-      error: (error: HttpErrorResponse) =>
-        console.error('Teachers:', error.message),
-    });
+  constructor() {
+    this.store.getAllTeachersRXJS();
   }
 }

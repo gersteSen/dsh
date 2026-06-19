@@ -4,11 +4,10 @@ import { TeacherStateStore } from '@app/Teacher/_store/teacher-state.store';
 import { TeacherInstrumentDto } from '@generated/index';
 import { TeacherDto } from '@generated/model/teacherDto';
 import { Chip } from '@shared/_components/chip/chip';
-import { Icon } from '../icon/icon';
 
 @Component({
   selector: 'dsh-teacher-card',
-  imports: [Chip, Icon],
+  imports: [Chip],
   templateUrl: './teacher-card.html',
   styleUrl: './teacher-card.css',
 })
@@ -26,7 +25,7 @@ export class TeacherCard {
   );
 
   protected navigateToTeacher() {
-    this.teacherStore.setSelectedTeacherRXJS(this.teacher().id!);
+    this.teacherStore.setSelectedTeacher(this.teacher().id!);
 
     this.#router.navigate([`./Teachers/${this.teacher()?.id}`], {
       queryParams: { teacherFullName: this.teacher()?.fullName },

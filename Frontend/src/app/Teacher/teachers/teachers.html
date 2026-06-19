@@ -1,5 +1,5 @@
 <div class="flex gap-8 flex-wrap px-8 mt-10">
-  @for (teacher of teachers(); track teacher.id) {
+  @for (teacher of store.teachers(); track teacher.id) {
   <dsh-teacher-card [teacher]="teacher" />
   }
 </div>
