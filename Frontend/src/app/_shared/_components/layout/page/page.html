@@ -1,6 +1,7 @@
 <section class="h-screen grid grid-rows-[145px_1fr]">
-  <div class=" shadow-2xs bg-secondary flex justify-between items-center px-8">
+  <div class=" shadow-2xs bg-secondary flex justify-between items-end px-8 pb-10">
     <div class="text-6xl text-white font-thin uppercase">{{titel()}}</div>
+    <ng-content></ng-content>
   </div>
   <div class="h-full">
     <router-outlet></router-outlet>

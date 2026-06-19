@@ -9,6 +9,7 @@ export const TEACHER_ROUTES: Routes = [
       {
         path: '',
         pathMatch: 'full',
+        data: { showTeachersSubmenu: true },
         loadComponent: () =>
           import('./teachers/teachers').then((t) => t.Teachers),
       },
