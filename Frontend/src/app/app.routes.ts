@@ -4,15 +4,15 @@ import { SidebarWithRouterOutlet } from './_shared/_components/layout/sidebar-wi
 
 export const routes: Routes = [
   {
-    path: '',
+    path: 'Login',
+    title: 'DSH - Anmeldung',
+    loadComponent: () => import('./Login/login-page').then((l) => l.LoginPage),
+  },
+  {
+    path: 'Dashboard' as Page,
     title: 'DSH - Administration',
     component: SidebarWithRouterOutlet,
     children: [
-      {
-        path: '',
-        redirectTo: 'Dashboard' as Page,
-        pathMatch: 'full',
-      },
       {
         path: 'Dashboard' as Page,
         title: 'DSH - Dashboard',
@@ -34,5 +34,10 @@ export const routes: Routes = [
           import('./Settings/settings-routes').then((s) => s.SETTINGS_ROUTES),
       },
     ],
+  },
+  {
+    path: '**',
+    redirectTo: 'Login',
+    pathMatch: 'full',
   },
 ];

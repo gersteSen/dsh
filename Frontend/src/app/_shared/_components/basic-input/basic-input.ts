@@ -15,6 +15,7 @@ export class BasicInput implements FormValueControl<string> {
   value = model('');
   label = input<string>('');
   placeholder = input<string>('');
+  type = input<'text' | 'password'>('text');
 
   // Writable interaction state - control updates these
   touched = model<boolean>(false);

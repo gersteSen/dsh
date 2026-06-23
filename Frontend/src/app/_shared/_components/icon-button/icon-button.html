@@ -1,3 +1,25 @@
-<button (click)="onClick()">
-    <dsh-icon [icon]="icon()" class="cursor-pointer hover:opacity-75" [classes]="classes()" />
-</button>
+@if (iconAndLabelButton()) {
+  <button (click)="onClick()"
+          class="w-full
+          flex
+          items-center
+          justify-start
+          gap-2
+          border border-transparent
+          bg-primary
+          px-2 py-2
+          text-sm/6 font-medium
+          text-white
+          shadow-sm
+          hover:bg-primary-dark focus:outline-none
+          focus:ring-2 focus:ring-primary focus:ring-offset-2
+cursor-pointer hover:opacity-75">
+    <dsh-icon [icon]="icon()" classes="mt-2"/>
+    <span class="ml-2 text-xl font-light">{{ label() }}</span>
+  </button>
+} @else {
+
+  <button (click)="onClick()">
+    <dsh-icon [icon]="icon()" class="cursor-pointer hover:opacity-75" [classes]="classes()"/>
+  </button>
+}

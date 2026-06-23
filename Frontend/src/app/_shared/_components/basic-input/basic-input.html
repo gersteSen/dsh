@@ -3,7 +3,7 @@
 <!--    {{ label() }}-->
 <!--  </label>-->
   <input
-    type="text"
+    [type]="type()"
     [value]="value()"
     (input)="value.set($event.target!.value)"
     [disabled]="disabled()"

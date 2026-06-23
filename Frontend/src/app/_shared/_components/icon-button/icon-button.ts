@@ -17,7 +17,7 @@ import { Icon } from '../icon/icon';
 export class IconButton {
   icon = input<string>('add');
   label = input<string>('');
-  iconLabelButton = input<boolean>(false);
+  iconAndLabelButton = input<boolean>(false);
   classes = input<string>(
     'rounded-full bg-primary text-white p-2 shadow hover:opacity-75 cursor-pointer mt-8',
   );

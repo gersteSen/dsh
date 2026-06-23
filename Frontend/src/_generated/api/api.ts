@@ -1,3 +1,5 @@
+export * from './auth.api.generated';
+import { AuthApi } from './auth.api.generated';
 export * from './instrument.api.generated';
 import { InstrumentApi } from './instrument.api.generated';
 export * from './lesson.api.generated';
@@ -10,4 +12,6 @@ export * from './student.api.generated';
 import { StudentApi } from './student.api.generated';
 export * from './teacher.api.generated';
 import { TeacherApi } from './teacher.api.generated';
-export const APIS = [InstrumentApi, LessonApi, MaterialApi, RoomApi, StudentApi, TeacherApi];
+export * from './user.api.generated';
+import { UserApi } from './user.api.generated';
+export const APIS = [AuthApi, InstrumentApi, LessonApi, MaterialApi, RoomApi, StudentApi, TeacherApi, UserApi];
