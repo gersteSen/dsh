@@ -1,3 +1,6 @@
+using API._Auth;
+using API._Auth.Repository;
+using API._Auth.Service;
 using API._Instrument.Repository;
 using API._Instrument.Service;
 using API._Lesson.Repository;
@@ -11,6 +14,9 @@ using API._Student.Service;
 using API._Teacher.Repository;
 using API._Teacher.Services;
 using API.Infrastructure;
+using API.Settings;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -32,6 +38,21 @@ builder.Services.AddSwaggerGen(options =>
 builder.Services.AddDbContext<DshDatabaseContext>(options =>
     DshDatabaseContext.ConfigureDb(options, builder.Configuration)
 );
+
+builder.Services.AddDbContext<AuthDbContext>(options =>
+    AuthDbContext.ConfigureDb(options, builder.Configuration)
+);
+
+var authSettings = builder.Configuration.GetSection("Auth").Get<AuthSettings>()
+    ?? throw new InvalidOperationException("Auth-Konfiguration fehlt in appsettings.json.");
+builder.Services.AddSingleton(authSettings);
+
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<AuthDbContext>()
+    .AddDefaultTokenProviders();
+
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 builder.Services.AddScoped<ITeacherRepository, TeacherRepository>();
 builder.Services.AddScoped<ITeacherService, TeacherService>();
@@ -66,6 +87,17 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
+app.UseAuthorization();
+
 app.MapControllers();
+
+using (var scope = app.Services.CreateScope())
+{
+    var authDb = scope.ServiceProvider.GetRequiredService<AuthDbContext>();
+    await authDb.Database.MigrateAsync();
+
+    await AuthSeeder.SeedAsync(scope.ServiceProvider);
+}
 
 app.Run();
