@@ -1,7 +1,7 @@
 <div class="relative">
-  <label for="name" class="absolute -top-2 left-2 inline-block rounded-lg bg-white px-1 text-xs font-medium text-text">
-    {{ label() }}
-  </label>
+<!--  <label for="name" class="absolute -top-2 left-2 inline-block px-1 text-xs font-medium text-text">-->
+<!--    {{ label() }}-->
+<!--  </label>-->
   <input
     type="text"
     [value]="value()"
@@ -12,7 +12,12 @@
     [attr.aria-invalid]="invalid()"
     (blur)="touched.set(true)"
     [placeholder]="placeholder()"
-    class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-text outline-1 -outline-offset-1 outline-gray-300 placeholder:text-text-densed focus:outline-2 focus:-outline-offset-2 focus:outline-primary-600 sm:text-sm/6" />
+    class="block w-full px-3 py-1.5 text-base text-text
+    placeholder:text-text-densed
+    outline-1 -outline-offset-1 outline-white
+    focus:outline-2 focus:-outline-offset-2 focus:outline-primary
+    focus:ring-0
+    sm:text-sm/6" />
 
 
   @if (touched() && errors().length > 0) {

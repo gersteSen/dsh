@@ -1,5 +1,5 @@
 ﻿import { Routes } from '@angular/router';
-import { TeacherPage } from '@app/Teacher/teacher';
+import { TeacherPage } from '@app/Teacher/teacher-page';
 
 export const TEACHER_ROUTES: Routes = [
   {
