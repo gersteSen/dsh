@@ -1,11 +1,11 @@
 ﻿import { Routes } from '@angular/router';
-import { SidebarWithRouterOutlet } from '@app/_shared/_components/layout/sidebar-with-router-outlet/sidebar-with-router-outlet';
 import { Page } from 'src/_config/page';
+import { TeacherPage } from './teacher-page';
 
 export const TEACHER_ROUTES: Routes = [
   {
     path: '',
-    component: SidebarWithRouterOutlet,
+    component: TeacherPage,
     children: [
       {
         path: '',
@@ -14,13 +14,14 @@ export const TEACHER_ROUTES: Routes = [
       },
       {
         path: 'Teachers' as Page,
-        data: { showSubmenu: false, title: 'GrooveDesk - Teachers' },
+        title: 'GrooveDesk - Teachers',
+        data: { showSubmenu: true, title: 'Lehrer' },
         loadComponent: () =>
           import('./teachers/teachers').then((t) => t.Teachers),
       },
       {
         path: ':teacherId',
-        data: { showSubmenu: false, title: 'GrooveDesk - Teacher' },
+        data: { showSubmenu: false, title: 'Lehrer' },
         loadComponent: () => import('./teacher/teacher').then((t) => t.Teacher),
       },
     ],

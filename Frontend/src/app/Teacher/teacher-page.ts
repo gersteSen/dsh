@@ -1,42 +1,50 @@
-import { Component, inject, input, linkedSignal, signal } from '@angular/core';
-import { Page } from '@shared/_components/layout/page/page';
-import { TeacherStateStore } from './_store/teacher-state.store';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { Component, inject, input, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { filter, map, startWith } from 'rxjs';
-import { IconButton } from '@shared/_components/icon-button/icon-button';
+import { ActivatedRoute } from '@angular/router';
 import { CreateNewTeacherDialog } from '@app/Teacher/teachers/create-new-teacher-dialog/create-new-teacher-dialog';
+import { SidebarWithRouterOutlet } from '@app/_shared/_components/layout/sidebar-with-router-outlet/sidebar-with-router-outlet';
+import { PageContainer } from '@shared/_components/layout/page/page';
+import { map } from 'rxjs';
+import { TeacherStateStore } from './_store/teacher-state.store';
 
 @Component({
   selector: 'dsh-teacher',
-  imports: [Page, IconButton, CreateNewTeacherDialog],
-  template: `<dsh-page [titel]="internalFullName()">
-    @if (showTeachersSubmenu()) {
-      <dsh-icon-button icon="add" (clickEvent)="toggleDialog()" />
-    }
-    @if (showCreateTeacherDialog()) {
-      <dsh-create-new-teacher-dialog (closeEvent)="toggleDialog()" />
-    }
-  </dsh-page>`,
+  imports: [PageContainer, CreateNewTeacherDialog, SidebarWithRouterOutlet],
+  template: ` <dsh-sidebar-with-router-outlet>
+    <dsh-page
+      [titel]="title()"
+      [showSubmenu]="showSubmenu()"
+      (showSubmenuChange)="showCreateTeacherDialog.set($event)"
+    >
+      @if (showCreateTeacherDialog()) {
+        <dsh-create-new-teacher-dialog (closeEvent)="toggleDialog()" />
+      }
+    </dsh-page>
+  </dsh-sidebar-with-router-outlet>`,
   providers: [TeacherStateStore],
 })
 export class TeacherPage {
+  #route = inject(ActivatedRoute);
   teacherFullName = input<string | undefined>('Lehrer');
-  internalFullName = linkedSignal(() => this.teacherFullName() ?? 'Lehrer');
 
   showCreateTeacherDialog = signal<boolean>(false);
 
-  private route = inject(ActivatedRoute);
+  // Da 'PageContainer' die Child-Routen umschließt,
+  // wandern wir via '.firstChild' tiefer, falls eine Child-Route aktiv ist.
+  #activeRouteData$ = this.#route.firstChild
+    ? this.#route.firstChild.data
+    : this.#route.data;
 
-  showTeachersSubmenu = toSignal(
-    inject(Router).events.pipe(
-      filter((e) => e instanceof NavigationEnd),
-      startWith(null),
-      map(
-        () =>
-          this.route.firstChild?.snapshot.data['showTeachersSubmenu'] ?? false,
-      ),
+  // Jetzt mappen wir ganz entspannt auf die gewünschten Properties
+  title = toSignal(
+    this.#activeRouteData$.pipe(
+      map((data) => data['title'] ?? 'Gib mir einen Titel'),
     ),
+    { initialValue: 'GrooveDesk' },
+  );
+
+  showSubmenu = toSignal(
+    this.#activeRouteData$.pipe(map((data) => data['showSubmenu'] ?? false)),
     { initialValue: false },
   );
 
