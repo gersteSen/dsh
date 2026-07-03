@@ -1,22 +1,14 @@
-<!--
-  This example requires updating your template:
-
-  ```
-  <html class="h-full bg-white">
-  <body class="h-full">
-  ```
--->
 <div class="flex min-h-full">
   <div class="flex flex-1 flex-col justify-center px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
     <div class="mx-auto w-full max-w-sm lg:w-96">
       <div>
         <img [src]="'images/dsh-logo.png'" alt="Drumschule Harsch Logo" class="sidebar__logo" />
-        <h2 class="mt-8 text-2xl/9 font-bold tracking-tight text-condensed">Drumschule Harsch | Plattform</h2>
-       </div>
+        <h2 class="mt-8 heading-white-md">GrooveDesk Harsch</h2>
+      </div>
 
       <div class="mt-10">
         <div>
-          <form action="#" method="POST" class="space-y-6">
+          <div class="space-y-6">
             <div>
               <div class="mt-2">
                 <dsh-basic-input placeholder="Email" />
@@ -36,9 +28,9 @@
             </div>
 
             <div>
-              <dsh-icon-button label="Login" icon="login" [iconAndLabelButton]="true" />
+              <dsh-icon-button (clickEvent)="navigateToDashboard()" label="Login" icon="login" [iconAndLabelButton]="true" />
             </div>
-          </form>
+          </div>
         </div>
 
       </div>
